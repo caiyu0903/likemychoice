@@ -51,7 +51,7 @@
             endfor
         endif
     -%}
-    <div class="inner inners">
+    <div class="inner inners" style="display: none">
         {% if product.featured_media %}
             {%- liquid
                 assign aspect_ratios_same = true
@@ -182,6 +182,7 @@
                             {% if models.size > 0 %}
                                 <script type="application/json" class="model-json">
                             {{- product.media | where: 'media_type', 'model' | json -}}
+                                
                                 
                                 
                                 
@@ -475,6 +476,7 @@
                     </div>
                     <script type="application/json" id="ProductJson-{{ product.id }}">
                  {{- product | json -}}
+                    
                     
                     
                     
