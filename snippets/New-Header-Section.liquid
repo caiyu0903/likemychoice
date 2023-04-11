@@ -1,0 +1,157 @@
+<div id="main-search"
+     class="main-search hide-pc {% if show_search_suggestions %}main-search--with-suggestions{% endif %}"
+     data-live-search="{{ settings.enable_live_search }}"
+     data-live-search-price="{{ settings.live_search_show_price }}"
+     data-live-search-vendor="{{ settings.live_search_show_vendor }}"
+     data-live-search-meta="{{ settings.live_search_search_meta }}"
+     data-per-row-mob="{{ settings.prod_thumb_mob_per_row }}">
+    
+    <div class="main-search__container new-main-search__container container">
+        <button class="main-search__close button notabutton"
+                style="display: none!important;"
+                aria-label="{{ 'layout.search.close' | t | escape }}">{% render 'svg-x', stroke_width: 1 %}</button>
+        <form class="main-search__form" action="{{ routes.search_url }}" method="get"
+              autocomplete="off">
+            <button class="main-search__button button notabutton new-search-button" type="submit"
+                    aria-label="{{ 'layout.header.search_submit' | t }}">{% render 'new-svg-search' %}</button>
+            <input type="hidden" name="type" value="{{ settings.search_type }}"/>
+            <input type="hidden" name="options[prefix]" value="last"/>
+            <div class="main-search__input-container">
+                <input class="main-search__input" type="text" name="q" autocomplete="off"
+                       placeholder="search jewelry, new arrivals, and more!"
+                       aria-label="{{ 'layout.search.title' | t | escape }}"/>
+            </div>
+        
+        </form>
+        
+        <div class="main-search__results" style="display: none"></div>
+        
+        <div class="main-search__suggestions" style="display: none">
+            {% if section.settings.search_suggestions_title != blank %}
+                <div class="h4-style heading-font">{{ section.settings.search_suggestions_title }}</div>
+            {% endif %}
+            {% if section.settings.search_suggestions_menu != blank %}
+                {%- liquid
+                    assign suggestions_menu = linklists[section.settings.search_suggestions_menu]
+                    
+                    if settings.coll_grid_image_shape == 'portrait-23'
+                        assign collection_aspect_ratio = 0.67
+                    elsif settings.coll_grid_image_shape == 'portrait-45'
+                        assign collection_aspect_ratio = 0.8
+                    elsif settings.coll_grid_image_shape == 'square'
+                        assign collection_aspect_ratio = 1.0
+                    elsif settings.coll_grid_image_shape == 'landscape-54'
+                        assign collection_aspect_ratio = 1.25
+                    elsif settings.coll_grid_image_shape == 'landscape-32'
+                        assign collection_aspect_ratio = 1.50
+                    elsif settings.coll_grid_image_shape == 'tallest'
+                        assign collection_aspect_ratio = 999
+                        for link in suggestions_menu.links
+                            for child_link in link.links
+                                if child_link.type == 'collection_link'
+                                    if child_link.object.featured_image.aspect_ratio < collection_aspect_ratio
+                                        assign collection_aspect_ratio = child_link.object.featured_image.aspect_ratio
+                                    endif
+                                endif
+                            endfor
+                            
+                            if link.type == 'collection_link'
+                                if link.object.featured_image.aspect_ratio < collection_aspect_ratio
+                                    assign collection_aspect_ratio = link.object.featured_image.aspect_ratio
+                                endif
+                            endif
+                        endfor
+                    else
+                        assign collection_aspect_ratio = 0
+                        for link in suggestions_menu.links
+                            for child_link in link.links
+                                if child_link.type == 'collection_link' and child_link.object.featured_image.aspect_ratio > collection_aspect_ratio
+                                    assign collection_aspect_ratio = child_link.object.featured_image.aspect_ratio
+                                endif
+                            endfor
+                            
+                            if link.type == 'collection_link' and link.object.featured_image.aspect_ratio > collection_aspect_ratio
+                                assign collection_aspect_ratio = link.object.featured_image.aspect_ratio
+                            endif
+                        endfor
+                    endif
+                    
+                    if settings.prod_thumb_shape == 'portrait-23'
+                        assign product_aspect_ratio = 0.67
+                    elsif settings.prod_thumb_shape == 'portrait-45'
+                        assign product_aspect_ratio = 0.8
+                    elsif settings.prod_thumb_shape == 'square'
+                        assign product_aspect_ratio = 1.0
+                    elsif settings.prod_thumb_shape == 'landscape-54'
+                        assign product_aspect_ratio = 1.25
+                    elsif settings.prod_thumb_shape == 'landscape-32'
+                        assign product_aspect_ratio = 1.50
+                    elsif settings.prod_thumb_shape == 'tallest'
+                        assign product_aspect_ratio = 99
+                        for link in suggestions_menu.links
+                            for child_link in link.links
+                                if child_link.type == 'product_link' and child_link.object.featured_media.preview_image.aspect_ratio < product_aspect_ratio
+                                    assign product_aspect_ratio = child_link.object.featured_media.preview_image.aspect_ratio
+                                endif
+                            endfor
+                            if link.type == 'product_link' and link.object.featured_media.preview_image.aspect_ratio < product_aspect_ratio
+                                assign product_aspect_ratio = link.object.featured_media.preview_image.aspect_ratio
+                            endif
+                        endfor
+                    else
+                        assign product_aspect_ratio = 0
+                        for link in suggestions_menu.links
+                            for child_link in link.links
+                                if child_link.type == 'product_link' and child_link.object.featured_media.preview_image.aspect_ratio > product_aspect_ratio
+                                    assign product_aspect_ratio = child_link.object.featured_media.preview_image.aspect_ratio
+                                endif
+                            endfor
+                            if link.type == 'product_link' and link.object.featured_media.preview_image.aspect_ratio > product_aspect_ratio
+                                assign product_aspect_ratio = link.object.featured_media.preview_image.aspect_ratio
+                            endif
+                        endfor
+                    endif
+                -%}
+                <div class="search-suggestions">
+                    <div class="search-suggestions__item-row">
+                        {% for link in suggestions_menu.links %}
+                            {% if link.links != blank %}
+                                <div class="search-suggestions__item search-suggestions__item--with-row">
+                                    <div class="search-suggestions__heading h5-style heading-font">
+                                        <a href="{{ link.url }}">{{ link.title | escape }}</a></div>
+                                    <div class="search-suggestions__item-row">
+                                        {% for child_link in link.links %}
+                                            <div class="search-suggestions__item">
+                                                {% if child_link.type == 'collection_link' %}
+                                                    {% render 'collection-block', collection: child_link.object, custom_aspect_ratio: collection_aspect_ratio, manual_image_load: true %}
+                                                {% elsif child_link.type == 'product_link' %}
+                                                    {% render 'product-block', product: child_link.object, custom_aspect_ratio: product_aspect_ratio, manual_image_load: true %}
+                                                {% else %}
+                                                    <a class="search-suggestions__link"
+                                                       href="{{ child_link.url }}">{{ child_link.title | escape }}</a>
+                                                {% endif %}
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div class="search-suggestions__item">
+                                    {% if link.type == 'collection_link' %}
+                                        {% render 'collection-block', collection: link.object, custom_aspect_ratio: collection_aspect_ratio, manual_image_load: true %}
+                                    {% elsif link.type == 'product_link' %}
+                                        {% render 'product-block', product: link.object, custom_aspect_ratio: product_aspect_ratio, manual_image_load: true %}
+                                    {% else %}
+                                        <a class="search-suggestions__link"
+                                           href="{{ link.url }}">{{ link.title | escape }}</a>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    
+    </div>
+</div>
+            

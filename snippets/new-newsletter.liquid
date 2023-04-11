@@ -1,0 +1,31 @@
+<div class="signup-form">
+    {% form 'customer', id: 'home_newsletter_signup' %}
+        {% if form.posted_successfully? %}
+            <div class="signup-form__response signup-form__response--success">
+                <h4>{{ 'layout.signup.post_success' | t }}</h4>
+            </div>
+        {% else %}
+            {% if form.errors %}
+                <div class="signup-form__response signup-form__response--error">
+                    {% for field in form.errors %}
+                        <p class="error">{{ field | capitalize }} - {{ form.errors.messages[field] }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <input type="hidden" name="contact[tags]" value="prospect,newsletter"/>
+            <div class="signup-form__inline-container">
+                <input type="email"
+                       placeholder="{{ 'layout.signup.placeholder' | t }}"
+                       class="signup-form__email"
+                       value=""
+                       name="contact[email]"
+                       aria-label="{{ 'layout.signup.input_label' | t | escape }}"
+                       required/>
+                <button class="button signup-form__button" type="submit">
+                    {{- 'layout.signup.submit' | t -}}
+                </button>
+            </div>
+        {% endif %}
+    
+    {% endform %}
+</div>

@@ -1,0 +1,325 @@
+<div class="New-Image-Banner" id="new-image-banner-{{ section.id }}">
+    <div class="{% if section.settings.full_width %} container--no-max{% else %}container{% endif %} container--not-mobile">
+        <div class="new-image-banner-container">
+            <div class="new-image-banner-frame">
+                <div class="new-image-banner-box">
+                    {%- if section.settings.image == blank -%}
+                        <div class="new__image hide-mobile placeholder-image {% if show_overlay_text %}dark{% endif %}"
+                             style="--ar-padding: 100%">
+                            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                        </div>
+                    {%- else -%}
+                        <div class="new__image hide-mobile rimage-outer-wrapper rimage-background lazyload fade-in"
+                             data-bgset="{% render 'bgset', image: section.settings.image %}"
+                             data-sizes="auto"
+                             data-parent-fit="cover"
+                             style="background-position: {{ section.settings.image.presentation.focal_point }}; --ar-padding: {{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%">
+                            <noscript>
+                                <div class="rimage-wrapper"
+                                     style="padding-top:{{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100 }}%">
+                                    <img src="{{ section.settings.image | img_url: '1024x1024' }}"
+                                         alt="{{ section.settings.image.alt | escape }}" class="rimage__image">
+                                </div>
+                            </noscript>
+                        </div>
+                    {%- endif -%}
+                    {% if section.settings.mobile_image != blank %}
+                        <div class="new__image-mobile hide-pc placeholder-image  {% if show_overlay_text %}dark{% endif %}"
+                             data-bgset="{% render 'bgset', image: section.settings.mobile_image %}"
+                             data-sizes="auto"
+                             data-parent-fit="cover"
+                             style="background-position: {{ section.settings.mobile_image.presentation.focal_point }};--ar-padding: {{ 1 | divided_by: section.settings.image.aspect_ratio | times:180 }}%;
+                                     background-image: url({{ section.settings.mobile_image | img_url: 'master' }});background-size:cover">
+                            {%- if section.settings.height == 'adapt' -%}
+                                {%- assign aspect_ratio = section.settings.mobile_image.aspect_ratio | default: 2.0 -%}
+                                <div class="rimage-wrapper"
+                                     style="padding-top:{{ 1 | divided_by: aspect_ratio | times: 100 }}%"></div>
+                            {%- endif -%}
+                            <noscript>
+                                <div class="rimage-wrapper"
+                                     style="padding-top:{{ 1 | divided_by: section.settings.mobile_image.aspect_ratio | times: 100 }}%">
+                                    <img src="{{ section.settings.mobile_image | img_url: '1024x1024' }}"
+                                         alt="{{ section.settings.mobile_image.alt | escape }}" class="new-image">
+                                </div>
+                            </noscript>
+                        </div>
+                    {% endif %}
+
+                </div>
+                {% if section.settings.title != blank %}
+                    <a class="new-image-banner-content" href="{{ section.settings.button_url }}" style="--bg_color_content:{{ section.settings.bg_color_content }}">
+                        {% if section.settings.sub_title != blank %}
+                        <span class="new-image-sub-title new-sub-title" style="--title_color:{{ section.settings.content_color_content }}">{{ section.settings.sub_title }}</span>
+                        {% endif %}
+                        {% if section.settings.title != blank %}
+                            {% if section.settings.use_h1 %}
+                                <h1 class="new-image-title new-title" style="--title_color:{{ section.settings.content_color_content }}">{% render 'multiline-text' with section.settings.title %}</h1>
+                            {% else %}
+                                <h2 class="new-image-title h1-style new-title" style="--title_color:{{ section.settings.content_color_content }}">{% render 'multiline-text' with section.settings.title %}</h2>
+                            {% endif %}
+                        {% endif %}
+                      {% if section.settings.des != blank %}
+                        <p class="new-image-banner-des" style="--title_color:{{ section.settings.content_color_content }}">{{ section.settings.des }}</p>
+                      {% endif %}
+                        {% if section.settings.button_label != blank %}
+                            <span class="new-image-link new_link button {% if section.settings.enable_mobile_hide != blank %}hide-mobile{% endif %}" style="--title_color:{{ section.settings.content_color_content }}" >{{ section.settings.button_label }}</span>
+                        {% endif %}
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{%- liquid
+    assign mg_top_desktop = section.settings.mg_top_desktop
+    assign mg_top_tablet = section.settings.mg_top_tablet
+    assign mg_top_mobile = section.settings.mg_top_mobile
+    assign mg_bottom_desktop = section.settings.margin_bottom
+    assign mg_bottom_tablet = section.settings.margin_bottom_tab
+    assign mg_bottom_mobile = section.settings.margin_bottom_mb
+    assign color_bg = section.settings.bg_color
+-%}
+<style>
+    #new-image-banner-{{ section.id }} {
+        background-color: {{ color_bg }};
+    }
+
+    @media (max-width: 767px) {
+        #new-image-banner-{{ section.id }} {
+            padding-top: {{ mg_top_mobile | append: 'px' }};
+            padding-bottom: {{ mg_bottom_mobile | append: 'px' }};
+        }
+    }
+
+    @media (min-width: 1200px) {
+        #new-image-banner-{{ section.id }} {
+            padding-top: {{ mg_top_desktop | append: 'px' }};
+            padding-bottom: {{ mg_bottom_desktop | append: 'px' }};
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+        #new-image-banner-{{ section.id }} {
+            padding-top: {{ mg_top_tablet | append: 'px' }};
+            padding-bottom: {{ mg_bottom_tablet | append: 'px' }};
+        }
+    }
+
+    .new__image {
+        position: relative;
+        padding-top: var(--ar-padding);
+        height: 0;
+    }
+
+    .new-image-banner-frame{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+    }
+    .new-image-banner-box{
+    
+    }
+    .new-image-banner-content{
+        padding: 60px 54px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        background-color: var(--bg_color_content);
+    }
+    
+    .new-image-title{
+       color: var(--title_color);
+  
+        margin-top: 12px;
+        margin-bottom: 40px;
+    }
+    
+    .new__image-mobile{
+        position: relative;
+        padding-top: var(--ar-padding);
+        height: 0;
+    }
+    
+   .new-image-link{
+        color: var(--title_color);
+        max-width: 154px;
+        border: 1px solid var(--title_color);
+        transition: all .3s ease;
+        background-color: transparent;
+    }
+   
+    #new-image-banner-{{ section.id }} .new-image-banner-content{
+        color: {{ section.settings.content_color_content }};
+    }
+
+    @media (max-width: 1200px) and (min-width: 767px){
+        .new__image{
+            padding-top: auto;
+            height: 100%;
+        }
+    }
+    @media (max-width: 767px) {
+        .new-image-banner-frame{
+            grid-template-columns: 1fr;
+        }
+        .new-image-banner-content{
+            padding: 40px 24px;
+        }
+        .new-image-title{
+             margin-bottom: 0;
+        }
+    }
+</style>
+
+{% schema %}
+{
+  "name": "New-Image-Banner",
+  "class": "New-Image-Banner-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "id": "full_width",
+      "type": "checkbox",
+      "label": "Full page width",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "use_h1",
+      "label": "Set as primary page heading",
+      "info": "Use <h1> tag. One per page recommended. [Read more](https://cleancanvas.co.uk/support/symmetry/section-h1-setting)",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color"
+    },
+    {
+      "type": "header",
+      "content": "Margin Bottom:"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mb",
+      "label": "Mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_tab",
+      "label": "Tablet",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Margin Top"
+    },
+    {
+      "type": "range",
+      "id": "mg_top_mobile",
+      "label": "Mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "mg_top_tablet",
+      "label": "Tablet",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "mg_top_desktop",
+      "label": "Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "2048 x 1024px recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile image",
+      "info": "1024px x 1024px recommended"
+    },
+    {
+      "type": "color",
+      "id": "bg_color_content",
+      "label": "Background Color Content"
+    },
+    {
+      "type": "color",
+      "id": "content_color_content",
+      "label": "Content Color",
+      "default": "#fff"
+    },
+    {
+      "type": "text",
+      "id": "sub_title",
+      "label": "Sub Title"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "des",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop this"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_mobile_hide",
+      "label": "Enable Button Mobile Hide",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "New-Image-Banner"
+    }
+  ]
+}
+{% endschema %}

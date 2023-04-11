@@ -1,0 +1,390 @@
+<div class="New-Tab-Collections" id="new-tab-collection-{{ section.id }}" data-section-type="featured-collection">
+    <div class="container {% if section.settings.full_width %} container--no-max{% endif %}">
+        <h2 class="hometitle h4-style align-center has-paging align-mobile-left" data-cc-animate
+            data-cc-animate-delay="0.3s">
+            <span>{{ section.settings.title }}</span>
+        </h2>
+        {% if section.settings.des != blank %}
+            <div class="new-collection-des align-center body_size align-mobile-left">
+                <span>{{ section.settings.des }}</span>
+            </div>
+        {% endif %}
+    </div>
+    <div class="container{% if section.settings.full_width %} container--no-max{% endif %} container--not-mobile">
+        
+        <div class="new-tab-collection-container">
+            <ul class="new-tab-title-list">
+                {% for block in section.blocks %}
+                    <li {% if forloop.first == true %}class="active"{% endif %}>{{ block.settings.title }}</li>
+                {% endfor %}
+            </ul>
+            <div class="new-tab-collection-frame">
+                {% for block in section.blocks %}
+                    
+                    {% if block.settings.collection == blank %}
+                        {% for i in (1..product_limit) %}
+                            {% render 'onboarding-product-block', forloop: forloop %}
+                        {% endfor %}
+                    {% else %}
+                        {%- liquid
+                            if settings.prod_thumb_shape == 'portrait-23'
+                                assign chosen_aspect_ratio = 0.67
+                            elsif settings.prod_thumb_shape == 'portrait-45'
+                                assign chosen_aspect_ratio = 0.8
+                            elsif settings.prod_thumb_shape == 'portrait-43'
+                                assign chosen_aspect_ratio = 0.75
+                            elsif settings.prod_thumb_shape == 'square'
+                                assign chosen_aspect_ratio = 1.0
+                            elsif settings.prod_thumb_shape == 'landscape-54'
+                                assign chosen_aspect_ratio = 1.25
+                            elsif settings.prod_thumb_shape == 'landscape-32'
+                                assign chosen_aspect_ratio = 1.50
+                            elsif settings.prod_thumb_shape == 'tallest'
+                                assign chosen_aspect_ratio = 99
+                                for product in collection.products limit: product_limit
+                                    if product.featured_media.preview_image.aspect_ratio < chosen_aspect_ratio
+                                        assign chosen_aspect_ratio = product.featured_media.preview_image.aspect_ratio
+                                    endif
+                                endfor
+                            else
+                                assign chosen_aspect_ratio = 0
+                                for product in collection.products limit: product_limit
+                                    if product.featured_media.preview_image.aspect_ratio > chosen_aspect_ratio
+                                        assign chosen_aspect_ratio = product.featured_media.preview_image.aspect_ratio
+                                    endif
+                                endfor
+                            endif
+                        -%}
+                        {% assign collection = block.settings.collection %}
+                        <div class="new-tab-collection-section {% if forloop.first == true %}active{% endif %}">
+                            <div class="swiper-{{ block.id }} new-slide">
+                                <div class="new-tab-collection-frame swiper-wrapper carousels scroll-snap-mobile">
+                                    {% for product in collection.products limit: product_limit %}
+                                        <div class="new-tab-collection-box swiper-slide items">
+                                            {% render 'product-block', product: product, collection: collection, manual_image_load: section.settings.enable_carousel, custom_aspect_ratio: chosen_aspect_ratio, no_swiping: section.settings.enable_carousel, no_quick_buy_markup: section.settings.enable_carousel %}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="swiper-button-next swiper-button-next-{{ block.id }} hide-mobile">
+                                {% render 'New-Arrow-Next' %}
+                            </div>
+                            <div class="swiper-button-prev swiper-button-prev-{{ block.id }} hide-mobile">
+                                {% render 'New-Arrow-Prev' %}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{%- liquid
+    assign mg_top_desktop = section.settings.mg_top_desktop
+    assign mg_top_tablet = section.settings.mg_top_tablet
+    assign mg_top_mobile = section.settings.mg_top_mobile
+    
+    assign mg_bottom_desktop = section.settings.margin_bottom
+    assign mg_bottom_tablet = section.settings.margin_bottom_tab
+    assign mg_bottom_mobile = section.settings.margin_bottom_mb
+    
+    assign color_bg = section.settings.bg_color
+
+-%}
+
+<style>
+    #new-tab-collection-{{ section.id }} {
+        background-color: {{ color_bg }};
+    }
+
+    @media (max-width: 767px) {
+        #new-tab-collection-{{ section.id }} {
+            padding-top: {{ mg_top_mobile | append: 'px' }};
+            padding-bottom: {{ mg_bottom_mobile | append: 'px' }};
+        }
+
+    }
+
+    @media (min-width: 1200px) {
+        #new-tab-collection-{{ section.id }} {
+            padding-top: {{ mg_top_desktop | append: 'px' }};
+            padding-bottom: {{ mg_bottom_desktop | append: 'px' }};
+        }
+    }
+
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+        #new-tab-collection-{{ section.id }} {
+            padding-top: {{ mg_top_tablet | append: 'px' }};
+            padding-bottom: {{ mg_bottom_tablet | append: 'px' }};
+        }
+    }
+
+    #new-tab-collection-template--16739749986530__b1a23c01-ddf1-4957-ae5e-172ce4601dec .new-tab-title-list {
+        display: none;
+    }
+
+    .new-tab-title-list {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        margin-bottom: 40px;
+        justify-content: center;
+    }
+
+    .new-tab-title-list li {
+        list-style: none;
+        margin-right: 20px;
+        cursor: pointer;
+    }
+
+    .new-tab-title-list li:nth-last-of-type(1) {
+        margin-right: 0px;
+    }
+
+    .new-slide {
+        overflow: hidden;
+    }
+
+    .new-tab-title-list li.active, .new-tab-title-list li:hover {
+        text-decoration: underline;
+    }
+
+    .new-tab-collection-frame {
+
+    }
+
+    .new-tab-collection-section {
+        position: relative;
+        height: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: all .3s ease;
+    }
+
+    .new-tab-collection-section.active {
+        height: auto;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    @media (min-width: 767px) {
+    {% if template.name == 'product' %}
+        .new-tab-collection-box .buy-buttons-row {
+            opacity: 0;
+        }
+
+        .new-tab-collection-box:hover .buy-buttons-row {
+            opacity: 1;
+        }
+    
+    {% endif %}
+    }
+
+    @media (max-width: 767px) {
+        .new-tab-title-list {
+            margin-bottom: 28px;
+            justify-content: flex-start;
+        }
+    }
+</style>
+{% for block in section.blocks %}
+    <script>
+        if (/(iPhone|iPad|iPod|Android|Mobile)/i.test(navigator.userAgent) || window.screen.width < 768) {
+            let new_tab = document.querySelectorAll('.new-tab-collection-frame')
+            for (let i = 0; i <= new_tab.length; i++) {
+                new_tab[i].classList.remove("swiper-wrapper")
+            }
+        } else {
+            // 当前设备是移动设备
+            new Swiper(".swiper-{{ block.id }}", {
+                slidesPerView: 4,
+                breakpoints: {
+                    320: {  //当屏幕宽度大于等于320
+                        slidesPerView: 2,
+                        spaceBetween: 10,
+                        pagination: {
+                            el: ".swiper-pagination",
+                            clickable: true,
+                        },
+                        navigation: {
+                            nextEl: ".swiper-button-next-{{ block.id }}",
+                            prevEl: ".swiper-button-prev-{{ block.id }}",
+                        },
+                    },
+                    768: {  //当屏幕宽度大于等于768
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                        pagination: {
+                            el: ".swiper-pagination",
+                            clickable: true,
+                        },
+                        navigation: {
+                            nextEl: ".swiper-button-next-{{ block.id }}",
+                            prevEl: ".swiper-button-prev-{{ block.id }}",
+                        },
+                    },
+                    1280: {  //当屏幕宽度大于等于1280
+                        slidesPerView: 4,
+                        spaceBetween: 30,
+                        navigation: {
+                            nextEl: ".swiper-button-next-{{ block.id }}",
+                            prevEl: ".swiper-button-prev-{{ block.id }}",
+                        },
+                    }
+                }
+            });
+        }
+    </script>
+{% endfor %}
+<script>
+    let new_tab = document.querySelectorAll(".new-tab-title-list li");
+    let new_collection = document.querySelectorAll(".new-tab-collection-section");
+
+    for (let i = 0; i < new_tab.length; i++) {
+        let li = new_tab[i];
+        (function (j) {
+            new_tab[j].onclick = function () {
+                for (let j = 0; j < new_tab.length; j++) {
+                    new_tab[j].classList.remove("active")
+                    new_collection[j].classList.remove("active")
+                }
+                new_tab[j].classList.add("active")
+                new_collection[j].classList.add("active")
+            }
+        })(i)
+    }
+
+</script>
+{% schema %}
+{
+  "name": "New-Tab-Collections",
+  "class": "New-Tab-Collections-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "id": "full_width",
+      "type": "checkbox",
+      "label": "Full page width",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color"
+    },
+    {
+      "type": "header",
+      "content": "Margin Bottom:"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mb",
+      "label": "Mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_tab",
+      "label": "Tablet",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Margin Top"
+    },
+    {
+      "type": "range",
+      "id": "mg_top_mobile",
+      "label": "Mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "mg_top_tablet",
+      "label": "Tablet",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "mg_top_desktop",
+      "label": "Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Featured collection"
+    },
+    {
+      "type": "textarea",
+      "id": "des",
+      "label": "Description",
+      "default": "Featured collection"
+    },
+    {
+      "type": "range",
+      "id": "rows",
+      "label": "Rows",
+      "info": "Does not apply to carousel layout",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 1
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Featured collection"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "New-Tab-Collections"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,331 @@
+<div class="New-Columns-Content" id="new-columns-content-{{ section.id }}">
+    <div class="container{% if section.settings.full_width %} container--no-max{% endif %} container--not-mobile">
+        <div class="new-containers">
+            {% if section.settings.title != blank %}
+                <h3 class="new-columns-content-heading new-title align-center capitalize bolder"
+                    style="--color:{{ section.settings.title_color }}">
+                    {{ section.settings.title }}
+                </h3>
+                <div class="new-line"></div>
+            {% endif %}
+            <div class="new-columns-content-container">
+                <div class="swiper mySwiper">
+                    <div class="new-columns-content-frame swiper-wrapper">
+                        {% for block in section.blocks %}
+                            <div class="new-columns-content-box swiper-slide align-center">
+                                <h4 class="new-columns-content-title custom-title capitalize bolder"
+                                    style="--color:{{ section.settings.title_color }}">{{ block.settings.title }}</h4>
+                                <span class="new-columns-content-des body-font"
+                                      style="--content_color:{{ section.settings.content_color }}">{{ block.settings.des }}</span>
+                                <div class="new-columns-content-subtitle"
+                                     style="--color:{{ section.settings.title_color }}">{{ block.settings.text }}</div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="new-columns-content-icon">
+        {{ section.settings.icon }}
+    </div>
+</div>
+
+{%- liquid
+    assign mg_top_desktop = section.settings.mg_top_desktop
+    assign mg_top_tablet = section.settings.mg_top_tablet
+    assign mg_top_mobile = section.settings.mg_top_mobile
+    
+    assign mg_bottom_desktop = section.settings.margin_bottom
+    assign mg_bottom_tablet = section.settings.margin_bottom_tab
+    assign mg_bottom_mobile = section.settings.margin_bottom_mb
+    
+    assign color_bg = section.settings.bg_color
+
+-%}
+
+<style>
+    #new-columns-content-{{ section.id }} .new-containers {
+        background-color: {{ color_bg }};
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    @media (max-width: 767px) {
+        #new-columns-content-{{ section.id }} .new-containers {
+            padding-top: {{ mg_top_mobile | append: 'px' }};
+            padding-bottom: {{ mg_bottom_mobile | append: 'px' }};
+            margin-top: 48px;
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+
+    }
+
+    @media (min-width: 1200px) {
+        #new-columns-content-{{ section.id }} .new-containers {
+            padding-top: {{ mg_top_desktop | append: 'px' }};
+            padding-bottom: {{ mg_bottom_desktop | append: 'px' }};
+            margin-top: 128px;
+        }
+    }
+
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+        #new-columns-content-{{ section.id }} .new-containers {
+            padding-top: {{ mg_top_tablet | append: 'px' }};
+            padding-bottom: {{ mg_bottom_tablet | append: 'px' }};
+            margin-top: 128px;
+        }
+
+    }
+
+    .New-Columns-Content {
+        position: relative;
+    }
+
+    .new-line {
+        width: 200px;
+        height: 1px;
+        background: #DD8C32;
+        margin: 0 auto 60px;
+    }
+
+    .new-columns-content-frame {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    .new-columns-content-icon {
+        position: absolute;
+        top: -60px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .new-columns-content-icon svg {
+        width: 120px;
+        height: 120px;
+    }
+
+    .new-columns-content-heading {
+        margin-top: 35px;
+        margin-bottom: 16px;
+        color: var(--color);
+    }
+
+    .new-columns-content-title {
+        color: var(--color);
+    }
+
+    .new-columns-content-box {
+    }
+
+    .new-columns-content-des {
+        color: var(--content_color);
+        margin: 6px auto 16px;
+        display: inline-block;
+        line-height: 1.6;
+    }
+
+    .new-columns-content-subtitle {
+        color: var(--color);
+    }
+
+    @media (max-width: 767px) {
+        .New-Columns-Content {
+            margin-top: 50px;
+        }
+
+        .new-columns-content-box {
+            width: 100%;
+        }
+
+        .new-line {
+            margin-bottom: 48px;
+            width: 100%;
+        }
+
+        .new-columns-content-heading {
+            margin: 16px auto;
+            max-width: 200px;
+        }
+
+        .new-columns-content-icon {
+            top: -50px;
+        }
+
+        .new-columns-content-icon svg {
+            width: 100px;
+            height: 100px;
+        }
+
+        .mySwiper {
+            padding-bottom: 60px;
+        }
+    }
+</style>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 4,
+        breakpoints: {
+            320: {  //当屏幕宽度大于等于320
+                slidesPerView: 1,
+                spaceBetween: 10,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            },
+            768: {  //当屏幕宽度大于等于768
+                slidesPerView: 3,
+                spaceBetween: 20,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            },
+            1280: {  //当屏幕宽度大于等于1280
+                slidesPerView: 4,
+                spaceBetween: 40
+            }
+        }
+    });
+</script>
+{% schema %}
+{
+  "name": "New-Columns-Content",
+  "class": "New-Columns-Content-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "id": "full_width",
+      "type": "checkbox",
+      "label": "Full page width",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color"
+    },
+    {
+      "type": "header",
+      "content": "Margin Bottom:"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mb",
+      "label": "Mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_tab",
+      "label": "Tablet",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Margin Top"
+    },
+    {
+      "type": "range",
+      "id": "mg_top_mobile",
+      "label": "Mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "mg_top_tablet",
+      "label": "Tablet",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "mg_top_desktop",
+      "label": "Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "textarea",
+      "id": "icon",
+      "label": "Icon"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "content_color",
+      "label": "Content Color",
+      "default": "#666666"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "content",
+      "name": "Content",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "des",
+          "label": "Content"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "New-Columns-Content"
+    }
+  ]
+}
+{% endschema %}

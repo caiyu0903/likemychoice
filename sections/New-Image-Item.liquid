@@ -1,0 +1,327 @@
+<div class="New-Image-Item" id="new-image-item-{{ section.id }}">
+    <div class="container{% if section.settings.full_width %} container--no-max{% endif %} container--no-padding">
+        {% if section.settings.title != blank %}
+            <h3 class="new-title new-title align-{{ section.settings.text_align }} new-margin-bottom align-mobile-left">
+                {{ section.settings.title }}
+            </h3>
+        {% endif %}
+        <div class="new-image-container">
+            <div class="new-image-item-container swiper-{{ section.id }}">
+                <div class="new-image-item-frame swiper-wrapper scroll-snap-mobile">
+                    {% for block in section.blocks %}
+                        {% assign item = forloop.length %}
+                        <div class="new-image-item-box swiper-slide items new-image-item-{{ item }}">
+                            <a {% if block.settings.link == blank %}role="link" aria-disabled="true"
+                               {% else %}href="{{ block.settings.link }}"{% endif %}
+                               title="{{ block.settings.image.alt | default: shop.name | escape }}">
+                                {%- if block.settings.image == blank -%}
+                                    <div class="new_image_item hide-mobile placeholder-image {% if show_overlay_text %}dark{% endif %}"
+                                         style="--ar-padding: 100%">
+                                        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                                    </div>
+                                {%- else -%}
+                                    <div class="new_image_item rimage-outer-wrapper rimage-background lazyload fade-in"
+                                         data-bgset="{% render 'bgset', image: block.settings.image %}"
+                                         data-sizes="auto"
+                                         data-parent-fit="cover"
+                                         style="background-position: {{ block.settings.image.presentation.focal_point }}; --ar-padding: {{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100 }}%">
+                                        <noscript>
+                                            <div class="rimage-wrapper"
+                                                 style="padding-top:{{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100 }}%">
+                                                <img src="{{ block.settings.image | img_url: '1024x1024' }}"
+                                                     alt="{{ block.settings.image.alt | escape }}"
+                                                     class="rimage__image">
+                                            </div>
+                                        </noscript>
+                                    </div>
+                                {%- endif -%}
+                                <div class="new-image-item-content">
+                                    <h4 class="new-custom-title">{{ block.settings.title }}</h4>
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            
+            </div>
+            <div class="swiper-button-next swiper-button-next-{{ section.id }} hide-mobile">
+                {% render 'New-Arrow-Next' %}
+            </div>
+            <div class="swiper-button-prev swiper-button-prev-{{ section.id }} hide-mobile">
+                {% render 'New-Arrow-Prev' %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{%- liquid
+    assign mg_top_desktop = section.settings.mg_top_desktop
+    assign mg_top_tablet = section.settings.mg_top_tablet
+    assign mg_top_mobile = section.settings.mg_top_mobile
+    
+    assign mg_bottom_desktop = section.settings.margin_bottom
+    assign mg_bottom_tablet = section.settings.margin_bottom_tab
+    assign mg_bottom_mobile = section.settings.margin_bottom_mb
+    
+    assign color_bg = section.settings.bg_color
+
+-%}
+
+<style>
+    #new-image-item-{{ section.id }} {
+        background-color: {{ color_bg }};
+    }
+
+    @media (max-width: 767px) {
+        #new-image-item-{{ section.id }} {
+            padding-top: {{ mg_top_mobile | append: 'px' }};
+            padding-bottom: {{ mg_bottom_mobile | append: 'px' }};
+        }
+
+    }
+
+    @media (min-width: 1200px) {
+        #new-image-item-{{ section.id }} {
+            padding-top: {{ mg_top_desktop | append: 'px' }};
+            padding-bottom: {{ mg_bottom_desktop | append: 'px' }};
+        }
+    }
+
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+        #new-image-item-{{ section.id }} {
+            padding-top: {{ mg_top_tablet | append: 'px' }};
+            padding-bottom: {{ mg_bottom_tablet | append: 'px' }};
+        }
+    }
+
+    .new-image-container {
+        position: relative;
+    }
+
+    .new-image-item-frame {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .new-image-item-container {
+        overflow: hidden;
+    }
+
+    .new-image-item-box {
+    }
+
+    .new-image-item-3 {
+        width: 32.3%;
+    }
+
+    .new-image-item-4 {
+        width: 24%;
+    }
+
+    .new-image-item-5 {
+        width: 19%;
+    }
+
+    .new_image_item {
+        padding-top: var(--ar-padding);
+    }
+
+    .new-image-item-content {
+        padding: 20px 16px;
+        background-color: #F7EAD9;
+    }
+
+    .new-image-item-content h4 {
+        margin-bottom: 0;
+    }
+
+    @media (max-width: 767px) {
+
+    }
+</style>
+<script>
+    if (/(iPhone|iPad|iPod|Android|Mobile)/i.test(navigator.userAgent) || window.screen.width < 768) {
+        let new_tab = document.querySelectorAll('.new-image-item-frame')
+        for (let i = 0; i <= new_tab.length; i++) {
+            new_tab[i].classList.remove("swiper-wrapper")
+        }
+    } else {
+        new Swiper(".swiper-{{ section.id }}", {
+            slidesPerView: 4,
+            breakpoints: {
+                320: {  //当屏幕宽度大于等于320
+                    slidesPerView: 2,
+                    spaceBetween: 10,
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: ".swiper-button-next-{{ section.id }}",
+                        prevEl: ".swiper-button-prev-{{ section.id }}",
+                    },
+                },
+                768: {  //当屏幕宽度大于等于768
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: ".swiper-button-next-{{ section.id }}",
+                        prevEl: ".swiper-button-prev-{{ section.id }}",
+                    },
+                },
+                1280: {  //当屏幕宽度大于等于1280
+                    slidesPerView: 4,
+                    spaceBetween: 30,
+                    navigation: {
+                        nextEl: ".swiper-button-next-{{ section.id }}",
+                        prevEl: ".swiper-button-prev-{{ section.id }}",
+                    },
+                }
+            }
+        });
+    }
+</script>
+{% schema %}
+{
+  "name": "New-Image-Item",
+  "class": "New-Image-Item-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "id": "full_width",
+      "type": "checkbox",
+      "label": "Full page width",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color"
+    },
+    {
+      "type": "header",
+      "content": "Margin Bottom:"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mb",
+      "label": "Mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_tab",
+      "label": "Tablet",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Margin Top"
+    },
+    {
+      "type": "range",
+      "id": "mg_top_mobile",
+      "label": "Mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "mg_top_tablet",
+      "label": "Tablet",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "mg_top_desktop",
+      "label": "Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text Align",
+      "default": "center",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Select Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "New-Image-Item"
+    }
+  ]
+}
+{% endschema %}
