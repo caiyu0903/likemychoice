@@ -185,6 +185,7 @@
                                 
                                 
                                 
+                                
                                 </script>
                                 <button
                                         class="view-in-space"
@@ -479,6 +480,7 @@
                     
                     
                     
+                    
                     </script>
                 </div>
             
@@ -726,7 +728,7 @@
                             
                             {% render 'unit-price', variant: cheapest_variant %}
                         </a>
-                        
+                        {% comment %}
                         {%- if settings.prod_thumb_show_options -%}
                             {%- liquid
                                 assign option_limit = 3
@@ -817,7 +819,7 @@
                                 {%- endif -%}
                             {%- endfor -%}
                         {%- endif -%}
-                        
+                        {% endcomment %}
                         {%- if settings.enable_product_reviews_collection and product.metafields.reviews.rating_count != blank -%}
                             {%- assign rating_count = product.metafields.reviews.rating_count | plus: 0 -%}
                             {%- if rating_count > 0 -%}
