@@ -183,6 +183,7 @@
                                 <script type="application/json" class="model-json">
                             {{- product.media | where: 'media_type', 'model' | json -}}
                                 
+                                
                                 </script>
                                 <button
                                         class="view-in-space"
@@ -475,13 +476,14 @@
                     
                     
                     
+                    
                     </script>
                 </div>
             
             </div><!-- /.product-detail -->
         </a>
     </div>
-    <div class="block-inner" style="display: none">
+    <div class="block-inner">
         <div class="block-inner-inner">
             {% if product.featured_media %}
                 {%- liquid
@@ -722,7 +724,7 @@
                             
                             {% render 'unit-price', variant: cheapest_variant %}
                         </a>
-                       
+                        
                         {%- if settings.prod_thumb_show_options -%}
                             {%- liquid
                                 assign option_limit = 3
@@ -813,7 +815,7 @@
                                 {%- endif -%}
                             {%- endfor -%}
                         {%- endif -%}
-                    
+                        
                         {%- if settings.enable_product_reviews_collection and product.metafields.reviews.rating_count != blank -%}
                             {%- assign rating_count = product.metafields.reviews.rating_count | plus: 0 -%}
                             {%- if rating_count > 0 -%}
