@@ -10909,7 +10909,10 @@ shopify-payment-terms {
 
 
 
-{{ font_col_base | color_mix: bg_col, 25 | color_to_rgb }}                                                                                                                                                                                                                          ;*/
+
+
+
+{{ font_col_base | color_mix: bg_col, 25 | color_to_rgb }}                                                                                                                                                                                                                             ;*/
     border-radius: {{ button_border_radius }}px;
     height: 48px;
     width: 48px;
@@ -15034,6 +15037,10 @@ input[type=checkbox] {
 .quickbuy-container .product-sticky-right {
     position: relative;
     top: auto;
+}
+
+.quickbuy-container .product-detail .gallery.gallery--layout-carousel-beside > .gallery__inner {
+    justify-content: flex-end;
 }
 
 /*************    ---                   ---                   ---   *************/
