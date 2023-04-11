@@ -4074,6 +4074,7 @@
                     $(this).find('.product-block .block-inner .block-inner-inner').each(function () {
                         if ($(this).height() > tallest) tallest = $(this).height();
                     });
+                    console.log("tallest: ",tallest)
                     $(this).find('.product-block .block-inner').css('min-height', tallest);
                 } else {
                     $(this).find('.product-block .block-inner').css('min-height', '');
