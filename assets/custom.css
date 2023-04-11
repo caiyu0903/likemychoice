@@ -326,7 +326,7 @@ input.opt-btn:checked + .opt-label {
 }
 
 .quickbuy-container .product-detail.quickbuy-content:nth-of-type(1) {
-    display: none;
+    display: flex;
 }
 
 @media (max-width: 1024px) {
