@@ -6182,6 +6182,16 @@
             };
         }
 
+
+        $(function () {
+            $(".new-learn-more").click(function () {
+                $(this).closest(".new-rich-containers").find('.new-rich-text').toggleClass("expanded");
+            });
+            theme.initProductGallery($('.product-list .product-block .inners').find('.product-form'));
+
+            $('.product-list .product-block .inners').find('.product-form').trigger('load-product-form');
+
+        });
         // quick buy - managing slide-down quickbuy in both grids and carousels
         var droppyDownAnimSpeed = 500;
         $(document).on('click', '.product-list .product-block:not(.collection-block):not(.main-search-result) .quickbuy-toggle', function () {
@@ -6373,7 +6383,6 @@
             });
         }
     };
-
 
     $(function () {
         $(document).on('click', '.sharing a', function (e) {
