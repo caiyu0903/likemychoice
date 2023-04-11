@@ -4072,10 +4072,10 @@
                 if ($(window).width() >= 768 || $(this).closest('.carousel').length > 0) {
                     var tallest = 0;
                     $(this).find('.product-block .block-inner .block-inner-inner').each(function () {
-                        console.log("$(this).height(): ", $(this).height())
+                       
                         if ($(this).height() > tallest) tallest = $(this).height();
                     });
-                    console.log("tallest: ", tallest)
+                   
                     $(this).find('.product-block .block-inner').css('min-height', tallest);
                 } else {
                     $(this).find('.product-block .block-inner').css('min-height', '');
