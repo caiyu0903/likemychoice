@@ -340,7 +340,7 @@ input.opt-btn:checked + .opt-label {
 }
 
 .new-quickbuy-container {
-
+    width: 64%;
 }
 
 @media (max-width: 1024px) {
