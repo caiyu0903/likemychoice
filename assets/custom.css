@@ -342,6 +342,7 @@ input.opt-btn:checked + .opt-label {
 .new-quickbuy-container {
     width: 68%;
     position: relative;
+    background-color: #fff;
 }
 
 @media (max-width: 1024px) {
