@@ -193,6 +193,7 @@
                                 
                                 
                                 
+                                
                                 </script>
                                 <button
                                         class="view-in-space"
@@ -482,6 +483,7 @@
                     </div>
                     <script type="application/json" id="ProductJson-{{ product.id }}">
                  {{- product | json -}}
+                    
                     
                     
                     
@@ -907,7 +909,7 @@
                     {% endif %}
                     {% if settings.quickbuy_style == 'button' %}
                         {% unless no_quick_buy %}
-                            <a class="btn btn--secondary quickbuy-toggle "
+                            <a class="btn btn--secondary quickbuy-toggle new-product-action hover_show"
                                href="{{ product_url }}">{{ 'products.quick_buy.launch' | t }}</a>
                         {% endunless %}
                     {% endif %}
