@@ -6096,7 +6096,284 @@
         };
     }();
 
-   
+    theme.loadQuickbuy = function () {
+        // utility function for quickbuy (closes all quickbuys in passed blocks, in a collection grid)
+        function contractDetail($blocks, speed) {
+            if ($blocks.length > 0) {
+                $blocks.removeClass('expanded');
+                $blocks.find('.quickbuy-container').stop().animate({height: 0}, speed, function () {
+                    $(this).find('.inner').empty();
+                });
+                $blocks.stop().each(function () {
+                    $(this).animate({paddingBottom: 0}, speed);
+                });
+            }
+        }
+
+        // handle components
+        function loadComponents(componentContainer) {
+            $(componentContainer).closest('[data-components]').each(function () {
+                $(this).data('components').split(',').forEach((component) => {
+                    $(document).trigger('cc:component:load', [component, componentContainer]);
+                });
+            });
+
+            $(document).trigger('cc:component:load', ['custom-select', '.quickbuy-container']);
+        }
+
+        function unloadComponents(componentContainer) {
+            $(componentContainer).find('.cc-accordion').off('.qbLoadComponents');
+            $(componentContainer).closest('[data-components]').each(function () {
+                $(this).data('components').split(',').forEach((component) => {
+                    $(document).trigger('cc:component:unload', [component, componentContainer]);
+                });
+            });
+        }
+
+        var debouncedQuickbuyResizeTimeoutID = -1;
+
+        function debouncedQuickbuyResize(qbInner) {
+            clearTimeout(debouncedQuickbuyResizeTimeoutID);
+            debouncedQuickbuyResizeTimeoutID = setTimeout(() => {
+                var qbc = qbInner.closest('.quickbuy-container'),
+                    block = qbc.closest('.product-block');
+                if (block) {
+                    // use padding in grid
+                    // also check expanded class in case it's mid close transition
+                    if (block.classList.contains('expanded')) {
+                        var targetHeight = $(qbInner).outerHeight(),
+                            expandedSiblings = [...block.parentNode.children].filter((child) => {
+                                return child !== block && child.classList.contains('expanded');
+                            }),
+                            speed = expandedSiblings.length > 0 ? 0 : droppyDownAnimSpeed; // slide down instantly if a neighbour is expanded
+
+                        $(block).stop().animate({
+                            paddingBottom: targetHeight + 20
+                        }, speed); // extra for gap underneath
+                        $(qbc).stop().animate({height: targetHeight}, speed);
+                    }
+                } else {
+                    // use height in carousel
+                    // - if not empty (e.g. post-close tidy-up)
+                    if (qbInner.childElementCount > 0) {
+                        $(qbc).stop().animate({
+                            height: $(qbInner).outerHeight()
+                        }, droppyDownAnimSpeed);
+                    }
+                }
+            }, 100);
+        }
+
+        var quickbuyResizeObserver = null;
+        if ('ResizeObserver' in window) {
+            quickbuyResizeObserver = new ResizeObserver((entries) => {
+                for (var entry of entries) {
+                    if (entry.contentBoxSize) {
+                        debouncedQuickbuyResize(entry.target);
+                    }
+                }
+            });
+        } else {
+            quickbuyResizeObserver = {
+                disconnect: () => {
+                },
+                observer: () => {
+                }
+            };
+        }
+
+        // quick buy - managing slide-down quickbuy in both grids and carousels
+        var droppyDownAnimSpeed = 500;
+        $(document).on('click', '.product-list .product-block:not(.collection-block):not(.main-search-result) .quickbuy-toggle', function () {
+           console.log("nihao")
+            var pageWidth = $(window).width(),
+                productUrl = $(this).attr('href');
+
+            //Only show dropdown if screen is large enough for it to be useful
+            if (pageWidth > 767) {
+                // cancel current request if one exists
+                if (theme.currentQuickbuyRequest) {
+                    theme.currentQuickbuyRequest.abort();
+                }
+
+                var $block = $(this).closest('.product-block'),
+                    $detailCont = null,
+                    $quickbuyCont = null,
+                    $slider = $(this).closest('.collection-slider'),
+                    $sliderRow = null;
+
+                // do different things if it's inside a slideshow
+                if ($slider.length > 0) {
+                    $sliderRow = $slider.closest('.collection-slider-row');
+                    // slider without detail
+                    if ($sliderRow.find('.quickbuy-container').length === 0) {
+                        return;
+                    }
+                    $quickbuyCont = $sliderRow.find('.quickbuy-container');
+                } else {
+                    $quickbuyCont = $block.find('.quickbuy-container');
+                }
+                $detailCont = $quickbuyCont.find('.inner');
+
+                // toggle active class on block
+                if ($block.toggleClass('expanded').hasClass('expanded')) {
+                    // expanding
+                    if ($slider.length > 0) {
+                        // if another block is expanded, remove its expanded class
+                        var noneExpanded = $slider.find('.product-block.expanded').not($block).removeClass('expanded').length === 0;
+
+                        // if expanding from empty, set initial detail container height to 0
+                        if (noneExpanded) {
+                            $quickbuyCont.height(0);
+                        } else {
+                            // unload existing quickbuy
+                            $('.product-form', $quickbuyCont).trigger('unload-product-form');
+                            $('.gallery', $quickbuyCont).off(this.namespace);
+                            $('.slideshow', $quickbuyCont).slick('unslick');
+                            // unload components
+                            unloadComponents($quickbuyCont);
+                        }
+                    } else {
+                        // close expanded siblings
+                        var $expandedSiblings = $block.siblings('.expanded');
+
+                        $expandedSiblings.each(function () {
+                            contractDetail($(this), 0);
+
+                            // unload existing quickbuy
+                            $('.product-form', this).trigger('unload-product-form');
+                            theme.destroyProductGallery(this);
+                            // unload components
+                            unloadComponents(this);
+                        });
+                    }
+
+                    // monitor for contents changing size
+                    quickbuyResizeObserver.disconnect();
+                    quickbuyResizeObserver.observe($detailCont[0]);
+
+                    // add spinner
+                    $detailCont.html('<div class="loading-spinner"></div>');
+
+                    // load in content
+                    var url = $(this).attr('href');
+                    theme.currentQuickbuyRequest = $.get(url, function (response) {
+                        var $newDetail = $('<div>' + response + '</div>').find('.quickbuy-content');
+
+                        // convert to quickbuy content
+                        $newDetail.find('.more').attr('href', productUrl);
+                        $newDetail.find('.detail .title').wrapInner($('<a>').attr('href', productUrl));
+                        $newDetail.find('.show-gallery').removeClass('show-gallery').attr('href', productUrl);
+                        $newDetail.find('.not-in-quickbuy').remove();
+                        $newDetail.find('.only-in-quickbuy').removeClass('only-in-quickbuy');
+                        $newDetail.find('.sticky-content-container').removeClass('sticky-content-container');
+                        $newDetail.find('.store-availability-container').remove();
+                        $newDetail.find('[data-enable-history-state="true"]').attr('data-enable-history-state', 'false');
+                        $newDetail.find('.gallery .thumbnails').removeClass('mobile-only');
+                        ['gallery--layout-carousel-beside', 'gallery--layout-columns-1', 'gallery--layout-columns-2', 'gallery--layout-collage-1', 'gallery--layout-collage-2'].forEach((cl) => {
+                            $newDetail.find('.' + cl).removeClass(cl).addClass('gallery--layout-carousel-under');
+                        });
+
+                        $detailCont.html($newDetail);
+
+                        // the order of these is important:
+                        theme.initProductGallery($quickbuyCont); // 1
+                        $quickbuyCont.find('.product-form').trigger('load-product-form'); // 2
+                        loadComponents($quickbuyCont); // 3
+                        theme.initAnimateOnScroll(); // 4
+                    }).always(function () {
+                        theme.currentQuickbuyRequest = false;
+                    });
+
+                    // enable close button
+                    $quickbuyCont.find('.close-detail').removeAttr('tabindex');
+
+                    // scroll to appropriate position
+                    // qb: top of quick buy
+                    // bl: top of product block
+                    var scrollMode = 'qb';
+                    var scrollOffset = -120;
+
+                    if ($('.section-header').css('position') == 'sticky') {
+                        scrollOffset -= $('.section-header').height();
+                    }
+
+                    if (scrollMode == 'qb') {
+                        $('html:not(:animated),body:not(:animated)').animate({scrollTop: $quickbuyCont.offset().top + scrollOffset}, 500);
+                    } else {
+                        if ($slider.length > 0) {
+                            // simple for slider
+                            $('html:not(:animated),body:not(:animated)').animate({scrollTop: $block.offset().top}, 500);
+                        } else {
+                            // need to use top of block when no quickbuys are visible
+                            saveCollectionPageData();
+                            var offsetTop = typeof $block.data('offsetTop') != 'undefined' ? $block.data('offsetTop') : $block.offset().top;
+                            $('html:not(:animated),body:not(:animated)').animate({scrollTop: offsetTop + scrollOffset}, 500);
+                        }
+                    }
+                } else {
+                    // close
+                    unloadComponents($quickbuyCont);
+                    if ($slider.length > 0) {
+                        // collapse detail container
+                        $quickbuyCont.stop().animate({height: 0}, droppyDownAnimSpeed, function () {
+                            // remove details
+                            $detailCont.empty();
+                        });
+                    } else {
+                        contractDetail($block, droppyDownAnimSpeed);
+                    }
+
+                    // scroll to top of closing block
+                    var scrollUpOffset = -140;
+                    $('html:not(:animated),body:not(:animated)').animate({scrollTop: $block.offset().top + scrollUpOffset}, 500);
+
+                    // disable close button
+                    $quickbuyCont.find('.close-detail').attr('tabindex', '-1');
+                }
+
+                return false;
+            }
+        });
+
+        //Close button event
+        $(document).on('click', '.quickbuy-container .close-detail', function () {
+            var $slider = $(this).closest('.collection-slider-row');
+            if ($slider.length) {
+                $slider.find('.product-block.expanded .quickbuy-toggle:first').trigger('click');
+            } else {
+                $(this).closest('.product-block').find('.quickbuy-toggle:first').trigger('click');
+            }
+            return false;
+        });
+
+        //You also need to know where to scroll to
+        function saveCollectionPageData() {
+            $('.collection-listing').each(function () {
+                var $blocks = $(this).find('.product-block');
+                if ($blocks.length <= 1) return true; // Skip for empty colls
+                var row = 0;
+                var currTop = 0;
+                //Heights are fixed. Check two in case somebody has expanded one...
+                var blockHeight = Math.min($blocks.first().outerHeight(), $($blocks[1]).outerHeight());
+                var blockPageOffset = $blocks.first().offset().top;
+                $blocks.each(function (index) {
+                    var currOffsetTop = $(this).offset().top;
+                    if (index == 0) {
+                        currTop = currOffsetTop;
+                    } else {
+                        if (currOffsetTop > currTop) {
+                            row++;
+                            currTop = currOffsetTop;
+                        }
+                    }
+                    $(this).data({
+                        offsetTop: blockPageOffset + row * blockHeight
+                    });
+                });
+            });
+        }
+    };
 
     $(function () {
         $(document).on('click', '.sharing a', function (e) {
