@@ -278,7 +278,10 @@ input.opt-btn:checked + .opt-label {
         transition: all .3s ease;
     }
 
-    .product-list .product-block .buy-buttons-row
+    .product-list .product-block .quickbuy-container .buy-buttons-row {
+        opacity: 1;
+    }
+
     .product-list .product-block:hover .buy-buttons-row {
         opacity: 1;
     }
