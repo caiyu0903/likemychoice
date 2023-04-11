@@ -189,6 +189,7 @@
                                 
                                 
                                 
+                                
                                 </script>
                                 <button
                                         class="view-in-space"
@@ -487,6 +488,7 @@
                     
                     
                     
+                    
                     </script>
                 </div>
             
@@ -680,12 +682,7 @@
                             {%- endfor -%}
                         {%- endif -%}
                     </div>
-                    {% if settings.quickbuy_style == 'button' %}
-                        {% unless no_quick_buy %}
-                            <a class="btn btn--secondary quickbuy-toggle "
-                               href="{{ product_url }}">{{ 'products.quick_buy.launch' | t }}</a>
-                        {% endunless %}
-                    {% endif %}
+                
                 </div>
             {% else %}
                 <div class="image-cont">
