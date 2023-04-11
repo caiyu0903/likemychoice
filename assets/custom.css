@@ -331,6 +331,10 @@ input.opt-btn:checked + .opt-label {
     overflow: hidden;
 }
 
+.collection-listing .quickbuy-container {
+    z-index: 9;
+}
+
 @media (max-width: 1024px) {
     .inners .product-form .new-input-row {
         position: absolute;
