@@ -7566,7 +7566,7 @@
             if ($iconOptionContainers.length && $('body.swatch-style-icon_circle, body.swatch-style-icon_square').length) {
                 $iconOptionContainers.find('.label').append('<span class="label__value">');
                 $(this).on('variantChanged', function (evt, variant) {
-                    console.log("variant")
+                   
                     $iconOptionContainers.each(function () {
                         var optionIndex = $(this).data('option-index');
                         if (variant) {
