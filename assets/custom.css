@@ -321,6 +321,10 @@ input.opt-btn:checked + .opt-label {
     font-size: 14px;
 }
 
+.quickbuy-container .product-detail.quickbuy-content {
+    
+}
+
 @media (max-width: 1024px) {
     .inners .product-form .new-input-row {
         position: absolute;
