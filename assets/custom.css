@@ -243,6 +243,7 @@ input.opt-btn:checked + .opt-label {
         width: 100%;
         opacity: 0;
         transition: all .3s ease;
+        display: none;
     }
 
     .new-potion-1 {
