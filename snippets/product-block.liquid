@@ -923,7 +923,7 @@
     </div>
     {%- if settings.quickbuy_style != 'off' -%}
         {%- unless no_quick_buy_markup or no_quick_buy -%}
-            <div class="quickbuy-container">
+            <div class="quickbuy-container" style="height: 100%!important;">
                 <div class="new-quickbuy-container">
                     <a href="#" class="close-detail" aria-label="{{ 'products.quick_buy.close' | t }}"
                        tabindex="-1">{% render 'svg-x', stroke_width: 1 %}</a>
