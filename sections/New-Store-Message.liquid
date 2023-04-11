@@ -1,0 +1,228 @@
+<div class="New-Store-Message" id="new-store-message-{{ section.id }}">
+    <div class="container{% if section.settings.full_width %} container--no-max{% endif %} container--no-padding">
+        <div class="new-store-message-container">
+            <div class="new-store-message-frame scroll-snap-mobile">
+                {% for block in section.blocks %}
+                    <div class="new-store-message-box items" style="--box_bg:{{ section.settings.box_bg }}">
+                        {% if block.settings.icon != blank %}
+                            <div class="new-store-message-img icon">{{ block.settings.icon }}</div>
+                        {% else %}
+                            <img class="new-store-message-img"
+                                 src="{{ block.settings.image | img_url: 'master' }}"
+                                 alt="{{ block.settings.image.alt }}">
+                        {% endif %}
+                        <h3 class="new-custom-title capitalize">{{ block.settings.title }}</h3>
+                        {% if block.settings.link != blank %}
+                            <a href="{{ block.settings.link }}"
+                               class="new-store-message-link capitalize body-font">{{ block.settings.btn }}</a>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{%- liquid
+    assign mg_top_desktop = section.settings.mg_top_desktop
+    assign mg_top_tablet = section.settings.mg_top_tablet
+    assign mg_top_mobile = section.settings.mg_top_mobile
+    
+    assign mg_bottom_desktop = section.settings.margin_bottom
+    assign mg_bottom_tablet = section.settings.margin_bottom_tab
+    assign mg_bottom_mobile = section.settings.margin_bottom_mb
+    
+    assign color_bg = section.settings.bg_color
+
+-%}
+
+<style>
+    #new-store-message-{{ section.id }} {
+        background-color: {{ color_bg }};
+    }
+
+    @media (max-width: 767px) {
+        #new-store-message-{{ section.id }} {
+            padding-top: {{ mg_top_mobile | append: 'px' }};
+            padding-bottom: {{ mg_bottom_mobile | append: 'px' }};
+        }
+
+    }
+
+    @media (min-width: 1200px) {
+        #new-store-message-{{ section.id }} {
+            padding-top: {{ mg_top_desktop | append: 'px' }};
+            padding-bottom: {{ mg_bottom_desktop | append: 'px' }};
+        }
+    }
+
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+        #new-store-message-{{ section.id }} {
+            padding-top: {{ mg_top_tablet | append: 'px' }};
+            padding-bottom: {{ mg_bottom_tablet | append: 'px' }};
+        }
+    }
+
+    .new-store-message-frame {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .new-store-message-box {
+        width: 32%;
+        background-color: var(--box_bg);
+        text-align: center;
+        padding: 31px;
+    }
+
+    .new-store-message-img svg, .new-store-message-img img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .new-store-message-img {
+        margin-bottom: 16px;
+    }
+
+    .new-store-message-link {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 767px) {
+        .new-store-message-img svg, .new-store-message-img img {
+            width: 32px;
+            height: 32px;
+        }
+    }
+</style>
+
+{% schema %}
+{
+  "name": "New-Store-Message",
+  "class": "New-Store-Message-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "id": "full_width",
+      "type": "checkbox",
+      "label": "Full page width",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color"
+    },
+    {
+      "type": "header",
+      "content": "Margin Bottom:"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mb",
+      "label": "Mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_tab",
+      "label": "Tablet",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Margin Top"
+    },
+    {
+      "type": "range",
+      "id": "mg_top_mobile",
+      "label": "Mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "mg_top_tablet",
+      "label": "Tablet",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "mg_top_desktop",
+      "label": "Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "color",
+      "id": "box_bg",
+      "label": "Background Color Box"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "message",
+      "name": "Message",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Select Image"
+        },
+        {
+          "type": "textarea",
+          "id": "icon",
+          "label": "Svg/Text"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "btn",
+          "label": "Content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "New-Store-Message"
+    }
+  ]
+}
+{% endschema %}
