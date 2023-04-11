@@ -4074,7 +4074,7 @@
                     $(this).find('.product-block .block-inner .block-inner-inner').each(function () {
                         if ($(this).height() > tallest) tallest = $(this).height();
                     });
-                    console.log("tallest: ",tallest)
+                    console.log("tallest: ", tallest)
                     $(this).find('.product-block .block-inner').css('min-height', tallest);
                 } else {
                     $(this).find('.product-block .block-inner').css('min-height', '');
@@ -6180,18 +6180,17 @@
                 }
             };
         }
-       
-      
-     
+
+
         $(function () {
             $(".new-learn-more").click(function () {
                 $(this).closest(".new-rich-containers").find('.new-rich-text').toggleClass("expanded");
-              });
-                        theme.initProductGallery($('.product-list .product-block .inners').find('.product-form'));
-            
-                        $('.product-list .product-block .inners').find('.product-form').trigger('load-product-form');
-            
-                    });
+            });
+            theme.initProductGallery($('.product-list .product-block .inners').find('.product-form'));
+
+            $('.product-list .product-block .inners').find('.product-form').trigger('load-product-form');
+
+        });
         // quick buy - managing slide-down quickbuy in both grids and carousels
         var droppyDownAnimSpeed = 500;
         $(document).on('click', '.product-list .product-block:not(.collection-block):not(.main-search-result) .quickbuy-toggle', function () {
