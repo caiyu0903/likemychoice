@@ -161,7 +161,7 @@
                             -%}
                             
                             <div class="slideshow product-slideshow slideshow--custom-initial"
-                                 data-slick='{"initialSlide":{{ initial_slide }}}'>
+                                 data-slick='{"adaptiveHeight":true,"initialSlide":{{ initial_slide }}}'>
                                 {%- for media in product.media -%}
                                     <div class="slide{% if forloop.index0 == initial_slide %} slide--custom-initial{% endif %}"
                                          data-media-id="{{ media.id }}">
