@@ -194,6 +194,7 @@
                                 
                                 
                                 
+                                
                                 </script>
                                 <button
                                         class="view-in-space"
@@ -497,6 +498,7 @@
                     
                     
                     
+                    
                     </script>
                 </div>
             
@@ -604,7 +606,7 @@
                                     endif
                                 -%}
                                 
-                                <div class="product-block-options new-product-block-options {% if product_option.name == 'Size' %}new-size-option-container{% elsif color == true or product_option.name == 'COLOR' %}new-color-option-container{% else %}new-options-container{% endif %}{% if is_swatch %} product-block-options--swatch{% endif %}"
+                                <div class="product-block-options new-product-block-options {% if product_option.name == 'Size' %}new-size-option-container{% elsif color == true or product_option.name == 'COLOR' %}new-color-option-container{% else %}new-options-container hide{% endif %}{% if is_swatch %} product-block-options--swatch{% endif %}"
                                      data-option-name="{{ product_option.name | escape }}">
                                     <div class="product-block-options__inner">
                                         {%- if product.options.size == 1 -%}
