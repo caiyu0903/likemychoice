@@ -278,6 +278,10 @@ input.opt-btn:checked + .opt-label {
         transition: all .3s ease;
     }
 
+    .product-list .product-block .quickbuy-container .buy-buttons-row {
+        opacity: 1;
+    }
+
     .product-list .product-block:hover .buy-buttons-row {
         opacity: 1;
     }
@@ -319,6 +323,26 @@ input.opt-btn:checked + .opt-label {
 
 .inners .product-block__title {
     font-size: 14px;
+}
+
+.quickbuy-container .product-detail.quickbuy-content {
+    display: none;
+}
+
+.quickbuy-container .product-detail.quickbuy-content:nth-of-type(1) {
+    display: flex;
+    max-height: 640px;
+    overflow: hidden;
+}
+
+.collection-listing .quickbuy-container {
+    z-index: 9;
+}
+
+.new-quickbuy-container {
+    width: 68%;
+    position: relative;
+    background-color: #fff;
 }
 
 @media (max-width: 1024px) {
