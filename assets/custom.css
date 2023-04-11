@@ -327,6 +327,7 @@ input.opt-btn:checked + .opt-label {
 
 .quickbuy-container .product-detail.quickbuy-content:nth-of-type(1) {
     display: flex;
+    max-height: 640px;
 }
 
 @media (max-width: 1024px) {
