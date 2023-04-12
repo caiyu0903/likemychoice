@@ -17,6 +17,7 @@
 // }
 
 // 移动端 产品卡片
+let new_adapt = document.querySelectorAll('.new-adapt-product-block');
 if (/(iPhone|iPad|iPod|Android|Mobile)/i.test(navigator.userAgent) || window.screen.width < 768) {
     // var script = document.createElement("script");
     // script.src = "mobile.js";
