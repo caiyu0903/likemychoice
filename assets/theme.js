@@ -6096,6 +6096,7 @@
             debouncedQuickbuyResizeTimeoutID = setTimeout(() => {
                 var qbc = qbInner.closest('.quickbuy-container'),
                     block = qbc.closest('.product-block');
+                    console.log($(qbInner).outerHeight())
                 if (block) {
                     // use padding in grid
                     // also check expanded class in case it's mid close transition
@@ -6109,7 +6110,7 @@
                         $(block).stop().animate({
                             // paddingBottom: targetHeight + 20
                         }, speed); // extra for gap underneath
-                        $(qbc).stop().animate({height: targetHeight}, speed);
+                        // $(qbc).stop().animate({height: targetHeight}, speed);
                     }
                 } else {
                     // use height in carousel
