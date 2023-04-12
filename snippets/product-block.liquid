@@ -849,8 +849,8 @@
                     </div>
                     {% if template.name == 'collection' %}
                     
-                    <div class="new-product-action hover_show hide-pc">
-                        <div class="new-product-action hover_show ">
+                    <div class="new-product-action hover_show">
+                        <div class="new-product-action hover_show hide-pc">
                             {% assign current_variant = product.selected_or_first_available_variant %}
                             {%- assign product_form_present = false -%}
                             {%- capture original_select -%}
@@ -915,12 +915,8 @@
                         {% endif %}
                         {% if settings.quickbuy_style == 'button' %}
                             {% unless no_quick_buy %}
-                                <<<<<<< HEAD
-                                <a class="btn btn--secondary quickbuy-toggle new-product-action hover_show"
-                                =======
                                 <a class="btn btn--secondary quickbuy-toggle new-product-action hover_show hide-mobile"
-                                >>>>>>> origin/xinkaifa
-                                    href="{{ product_url }}">{{ 'products.quick_buy.launch' | t }}</a>
+                                   href="{{ product_url }}">{{ 'products.quick_buy.launch' | t }}</a>
                             {% endunless %}
                         {% endif %}
                     </div>
