@@ -719,7 +719,7 @@
                             
                             <div class="product-price">
                                 {% if product.price_varies %}
-                                    <span class="product-price__item product-price__from">{{ 'products.listing.from' | t }}</span>
+                                    {% comment %}<span class="product-price__item product-price__from">{{ 'products.listing.from' | t }}</span>{% endcomment %}
                                 {% endif %}
                                 <span class="product-price__item product-price__amount {% if cheapest_variant.compare_at_price > cheapest_variant.price %}product-price__amount--on-sale{% endif %} theme-money">
                   {%- if settings.product_currency_code_enabled -%}
