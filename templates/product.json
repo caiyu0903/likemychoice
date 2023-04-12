@@ -265,9 +265,9 @@
         "aa2c6a16-94ab-4411-83eb-d8a40f9ebab0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Frame_195003_1_aa7eead0-556c-4698-8574-e0e4b5f9f66b.webp",
-            "title": "Necklaces",
-            "link": "shopify:\/\/products\/acacia-seed-resin-dried-flower-necklace"
+            "image": "shopify:\/\/shop_images\/banner_1on1.png",
+            "title": "",
+            "link": ""
           }
         }
       },
@@ -288,8 +288,7 @@
         "mg_top_tablet": 0,
         "mg_top_desktop": 0,
         "text_align": "center",
-        "title": "Collection",
-        "enable_slider": true
+        "title": "Collection"
       }
     }
   },

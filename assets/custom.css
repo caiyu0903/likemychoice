@@ -345,13 +345,10 @@ input.opt-btn:checked + .opt-label {
     background-color: #fff;
 }
 
-<<<<<<< HEAD
-=======
 .new-options-container {
     display: flex;
 }
 
->>>>>>> origin/xinkaifa
 @media (max-width: 1024px) {
     .inners .product-form .new-input-row {
         position: absolute;
