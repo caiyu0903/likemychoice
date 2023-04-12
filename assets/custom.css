@@ -533,6 +533,10 @@ input.opt-btn:checked + .opt-label {
     .navigation__item--open .navigation__children-toggle {
         display: none;
     }
+
+    .new-navigation__mobile-social .new-footer {
+        
+    }
 }
 
 
