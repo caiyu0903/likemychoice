@@ -6116,7 +6116,8 @@
                     // - if not empty (e.g. post-close tidy-up)
                     if (qbInner.childElementCount > 0) {
                         $(qbc).stop().animate({
-                            height: $(qbInner).outerHeight()
+                            // height: $(qbInner).outerHeight()
+                            height: 100%
                         }, droppyDownAnimSpeed);
                     }
                 }
