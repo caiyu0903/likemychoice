@@ -355,7 +355,7 @@ input.opt-btn:checked + .opt-label {
         position: absolute;
         top: -126px;
         left: 10px;
-        display: none;
+        /*display: none;*/
     }
 
     .swatch-style-icon_circle .inners .option-selector--swatch .opt-label, .inners .option-selector__btns .opt-label {
