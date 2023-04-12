@@ -6255,7 +6255,8 @@
                     if ($('.section-header').css('position') == 'sticky') {
                         scrollOffset -= $('.section-header').height();
                     }
-                    console.log("$block: ",$block)
+                    var offsetTop = typeof $block.data('offsetTop') != 'undefined' ? $block.data('offsetTop') : $block.offset().top;
+                    console.log("$offsetTop: ",$offsetTop)
                     if (scrollMode == 'qb') {
                         $('html:not(:animated),body:not(:animated)').animate({scrollTop: $quickbuyCont.offset().top + scrollOffset}, 500);
                     } else {
