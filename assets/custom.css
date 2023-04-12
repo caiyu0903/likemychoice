@@ -340,7 +340,7 @@ input.opt-btn:checked + .opt-label {
 }
 
 .collection-listing .quickbuy-container {
-    z-index: 9;
+    z-index: 999;
 }
 
 .new-quickbuy-container {
