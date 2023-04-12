@@ -6265,6 +6265,7 @@
                         } else {
                             // need to use top of block when no quickbuys are visible
                             saveCollectionPageData();
+                            console
                             var offsetTop = typeof $block.data('offsetTop') != 'undefined' ? $block.data('offsetTop') : $block.offset().top;
                             $('html:not(:animated),body:not(:animated)').animate({scrollTop: offsetTop + scrollOffset}, 500);
                         }
@@ -6315,7 +6316,6 @@
                 //Heights are fixed. Check two in case somebody has expanded one...
                 var blockHeight = Math.min($blocks.first().outerHeight(), $($blocks[1]).outerHeight());
                 var blockPageOffset = $blocks.first().offset().top;
-                console.log( "blockPageOffset: ", blockPageOffset)
                 $blocks.each(function (index) {
                     var currOffsetTop = $(this).offset().top;
                     if (index == 0) {
