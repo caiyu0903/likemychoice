@@ -365,6 +365,7 @@ input.opt-btn:checked + .opt-label {
     .swatch-style-icon_circle .new-input-row .option-selector--swatch .opt-label, .new-input-row .option-selector__btns .opt-label {
         width: 24px;
         height: 24px;
+        padding: 0;
     }
 
     .new-inners .product-detail .gallery .main-image {
