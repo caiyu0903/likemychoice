@@ -6109,7 +6109,7 @@
                             $(block).stop().animate({
                             // paddingBottom: targetHeight + 20
                         }, speed); // extra for gap underneath
-                        $(qbc).css("heig")
+                        $(qbc).css("height",100%)
                         $(qbc).stop().animate({height: targetHeight}, speed);
                     }
                 } else {
