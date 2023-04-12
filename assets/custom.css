@@ -351,6 +351,10 @@ input.opt-btn:checked + .opt-label {
     box-shadow: 0 15px 45px #0000001a;
 }
 
+.new-quickbuy-container .slideshow-controls {
+    display: none;
+}
+
 @media (max-width: 1024px) {
     .inners .product-form .new-input-row {
         position: absolute;
