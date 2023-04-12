@@ -79,6 +79,10 @@
     margin-bottom: 0px;
 }
 
+.new-options-container {
+    display: flex;
+}
+
 .inners .product-detail .price, .inners .product-detail .priceon-sale {
     font-size: 14px;
 }
