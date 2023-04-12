@@ -188,6 +188,15 @@ input.opt-btn:checked + .opt-label {
     visibility: visible;
 }
 
+.new_hover_show .new-product-action {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    min-width: 0;
+    padding: 1.2em 0;
+    display: inline-block;
+}
+
 .new-inners {
     background-color: #F9F9F9;
     padding: 18px 20px 0;
