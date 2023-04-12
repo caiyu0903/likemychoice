@@ -1,0 +1,249 @@
+[33mcommit 96f0b7eb6edd076495a954d17690970851e91815[m[33m ([m[1;36mHEAD -> [m[1;32mxinkaifa[m[33m)[m
+Merge: 4af15da c73c6f3
+Author: caiyu <17680766033@163.com>
+Date:   Wed Apr 12 10:51:32 2023 +0800
+
+    Merge remote-tracking branch 'origin/xinkaifa' into xinkaifa
+    
+    # Conflicts:
+    #       assets/styles.css.liquid
+    #       snippets/product-block.liquid
+    #       templates/product.json
+
+[33mcommit 4af15dacbbea1bad0673288304f3fac1c07ce253[m
+Merge: b630068 58cc872
+Author: caiyu <17680766033@163.com>
+Date:   Wed Apr 12 10:49:41 2023 +0800
+
+    更新文件
+
+[33mcommit c73c6f32677261d8bbc10979e36dff93a6477091[m
+Author: shopify[bot] <79544226+shopify[bot]@users.noreply.github.com>
+Date:   Wed Apr 12 02:48:50 2023 +0000
+
+    Update from Shopify for theme likemychoice/xinkaifa
+    
+    Committed from shop: LikeMyChoice
+
+[33mcommit 837bc34bf1c7139f33e26732c93675fdeb4d6b56[m
+Author: shopify[bot] <79544226+shopify[bot]@users.noreply.github.com>
+Date:   Wed Apr 12 02:48:03 2023 +0000
+
+    Update from Shopify for theme likemychoice/xinkaifa
+    
+    Committed from shop: LikeMyChoice
+
+[33mcommit 58cc8720fc9ff16192ed7b1be647b6f793a61934[m
+Author: shopify[bot] <79544226+shopify[bot]@users.noreply.github.com>
+Date:   Wed Apr 12 02:42:47 2023 +0000
+
+    Update from Shopify for theme likemychoice/xinkaifa
+    
+    Committed from shop: LikeMyChoice
+
+[33mcommit d1eed3f1ac50193260fc86229ab10f26f9a2b5fb[m
+Author: shopify[bot] <79544226+shopify[bot]@users.noreply.github.com>
+Date:   Wed Apr 12 02:34:54 2023 +0000
+
+    Update from Shopify for theme likemychoice/xinkaifa
+    
+    Committed from shop: LikeMyChoice
+
+[33mcommit 0cadaad171f48f2340a7765d14d673357f947948[m
+Author: shopify[bot] <79544226+shopify[bot]@users.noreply.github.com>
+Date:   Wed Apr 12 02:34:14 2023 +0000
+
+    Update from Shopify for theme likemychoice/xinkaifa
+    
+    Committed from shop: LikeMyChoice
+
+[33mcommit 9a405467a94b902c31073f04d98d3531502ea831[m
+Author: shopify[bot] <79544226+shopify[bot]@users.noreply.github.com>
+Date:   Wed Apr 12 02:33:38 2023 +0000
+
+    Update from Shopify for theme likemychoice/xinkaifa
+    
+    Committed from shop: LikeMyChoice
+
+[33mcommit 4bd510ee1897bd27928d2f3db2c282055a676bb6[m
+Author: shopify[bot] <79544226+shopify[bot]@users.noreply.github.com>
+Date:   Wed Apr 12 02:31:54 2023 +0000
+
+    Update from Shopify for theme likemychoice/xinkaifa
+    
+    Committed from shop: LikeMyChoice
+
+[33mcommit 03e282fff2e93bc9b3c6480fe746ef6741f238ba[m
+Author: shopify[bot] <79544226+shopify[bot]@users.noreply.github.com>
+Date:   Wed Apr 12 02:31:29 2023 +0000
+
+    Update from Shopify for theme likemychoice/xinkaifa
+    
+    Committed from shop: LikeMyChoice
+
+[33mcommit 848924d844166f02622b7a741ac6e92905ff99e5[m
+Author: shopify[bot] <79544226+shopify[bot]@users.noreply.github.com>
+Date:   Wed Apr 12 02:30:39 2023 +0000
+
+    Update from Shopify for theme likemychoice/xinkaifa
+    
+    Committed from shop: LikeMyChoice
+
+[33mcommit c3f36b91c31ba221d3a437cdac9d123c4a5f4e43[m
+Author: shopify[bot] <79544226+shopify[bot]@users.noreply.github.com>
+Date:   Wed Apr 12 02:29:41 2023 +0000
+
+    Update from Shopify for theme likemychoice/xinkaifa
+    
+    Committed from shop: LikeMyChoice
+
+[33mcommit 6cef2aaf91a31610665f7ea28fca79b64cb5f5ed[m
+Author: shopify[bot] <79544226+shopify[bot]@users.noreply.github.com>
+Date:   Wed Apr 12 02:29:31 2023 +0000
+
+    Update from Shopify for theme likemychoice/xinkaifa
+    
+    Committed from shop: LikeMyChoice
+
+[33mcommit 872a00cb259980cd7f38cf18cd7e5c7b390c1da7[m
+Author: shopify[bot] <79544226+shopify[bot]@users.noreply.github.com>
+Date:   Wed Apr 12 02:28:39 2023 +0000
+
+    Update from Shopify for theme likemychoice/xinkaifa
+    
+    Committed from shop: LikeMyChoice
+
+[33mcommit 6dae77afb4c7c585257f617effc3797b9a46ed8c[m
+Author: shopify[bot] <79544226+shopify[bot]@users.noreply.github.com>
+Date:   Wed Apr 12 02:23:24 2023 +0000
+
+    Update from Shopify for theme likemychoice/xinkaifa
+    
+    Committed from shop: LikeMyChoice
+
+[33mcommit 4e2841373c854876044de3d01a1cb6dc82cfef9e[m
+Author: shopify[bot] <79544226+shopify[bot]@users.noreply.github.com>
+Date:   Wed Apr 12 02:22:34 2023 +0000
+
+    Update from Shopify for theme likemychoice/xinkaifa
+    
+    Committed from shop: LikeMyChoice
+
+[33mcommit 6437f3f240bae7b05c740bff14fbf892f5c523b9[m
+Author: shopify[bot] <79544226+shopify[bot]@users.noreply.github.com>
+Date:   Wed Apr 12 02:22:09 2023 +0000
+
+    Update from Shopify for theme likemychoice/xinkaifa
+    
+    Committed from shop: LikeMyChoice
+
+[33mcommit 753d16eae36da5dedd05a14c391b9a1fb6f55c34[m
+Author: shopify[bot] <79544226+shopify[bot]@users.noreply.github.com>
+Date:   Wed Apr 12 02:21:19 2023 +0000
+
+    Update from Shopify for theme likemychoice/xinkaifa
+    
+    Committed from shop: LikeMyChoice
+
+[33mcommit 7cfcadeefdbf242b022ff8d4e9a5e30834900e29[m
+Author: shopify[bot] <79544226+shopify[bot]@users.noreply.github.com>
+Date:   Wed Apr 12 02:19:51 2023 +0000
+
+    Update from Shopify for theme likemychoice/xinkaifa
+    
+    Committed from shop: LikeMyChoice
+
+[33mcommit d7576fe4f2aa0612074aeed800af7ba173aa4f14[m
+Author: shopify[bot] <79544226+shopify[bot]@users.noreply.github.com>
+Date:   Wed Apr 12 02:05:36 2023 +0000
+
+    Update from Shopify for theme likemychoice/xinkaifa
+    
+    Committed from shop: LikeMyChoice
+
+[33mcommit 3032595d85789d1de16edd8324929812c7ca3309[m
+Author: shopify[bot] <79544226+shopify[bot]@users.noreply.github.com>
+Date:   Wed Apr 12 02:01:28 2023 +0000
+
+    Update from Shopify for theme likemychoice/xinkaifa
+    
+    Committed from shop: LikeMyChoice
+
+[33mcommit 32dd4f19c1c3f00052e86ede12815df1b082a682[m
+Author: shopify[bot] <79544226+shopify[bot]@users.noreply.github.com>
+Date:   Wed Apr 12 02:00:12 2023 +0000
+
+    Update from Shopify for theme likemychoice/xinkaifa
+    
+    Committed from shop: LikeMyChoice
+
+[33mcommit 8dddb19659f001126e30f4857901d38d5377b892[m
+Author: shopify[bot] <79544226+shopify[bot]@users.noreply.github.com>
+Date:   Wed Apr 12 01:59:22 2023 +0000
+
+    Update from Shopify for theme likemychoice/xinkaifa
+    
+    Committed from shop: LikeMyChoice
+
+[33mcommit c515099ab78c3dd0e001bd493d95caced1238402[m
+Author: shopify[bot] <79544226+shopify[bot]@users.noreply.github.com>
+Date:   Wed Apr 12 01:59:05 2023 +0000
+
+    Update from Shopify for theme likemychoice/xinkaifa
+    
+    Committed from shop: LikeMyChoice
+
+[33mcommit db53739cb32f82b96e832f572152d915ac12010d[m
+Author: shopify[bot] <79544226+shopify[bot]@users.noreply.github.com>
+Date:   Wed Apr 12 01:58:21 2023 +0000
+
+    Update from Shopify for theme likemychoice/xinkaifa
+    
+    Committed from shop: LikeMyChoice
+
+[33mcommit 19ee0900f73ff78b763c9bfb5feebf31b7e37733[m
+Author: shopify[bot] <79544226+shopify[bot]@users.noreply.github.com>
+Date:   Wed Apr 12 01:55:30 2023 +0000
+
+    Update from Shopify for theme likemychoice/xinkaifa
+    
+    Committed from shop: LikeMyChoice
+
+[33mcommit b6300689b59e16520d002ccad59c494dae9a9414[m
+Author: caiyu <17680766033@163.com>
+Date:   Wed Apr 12 09:53:23 2023 +0800
+
+    4.12同步更新
+
+[33mcommit 2a37316b5d25d3bcb2bcb7cd5c52a426b2cc0a75[m
+Author: shopify[bot] <79544226+shopify[bot]@users.noreply.github.com>
+Date:   Wed Apr 12 01:45:34 2023 +0000
+
+    Update from Shopify for theme likemychoice/xinkaifa
+    
+    Committed from shop: LikeMyChoice
+
+[33mcommit 2c789d3beecb9a299a585b1e3a7729dce47a9c4d[m
+Author: shopify[bot] <79544226+shopify[bot]@users.noreply.github.com>
+Date:   Wed Apr 12 01:39:04 2023 +0000
+
+    Update from Shopify for theme likemychoice/xinkaifa
+    
+    Committed from shop: LikeMyChoice
+
+[33mcommit ef4bdb92873b5345b88f188ea06e01007b0cc8bb[m
+Author: caiyu <17680766033@163.com>
+Date:   Tue Apr 11 18:09:53 2023 +0800
+
+    产品卡片点击显示弹窗pc端
+
+[33mcommit 73349a3f721cca5e548d9552861ad848ed631f78[m
+Author: shopify[bot] <79544226+shopify[bot]@users.noreply.github.com>
+Date:   Tue Apr 11 10:09:17 2023 +0000
+
+    Update from Shopify for theme likemychoice/xinkaifa
+    
+    Committed from shop: LikeMyChoice
+
+[33mcommit 73dda5eda0c6a7bbe2cd24004ea9403a1ea1e407[m
+Author: shopify[bot] <79544226+shopify[bot
