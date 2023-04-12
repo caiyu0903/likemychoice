@@ -6107,7 +6107,7 @@
                             speed = expandedSiblings.length > 0 ? 0 : droppyDownAnimSpeed; // slide down instantly if a neighbour is expanded
 
                         $(block).stop().animate({
-                            paddingBottom: targetHeight + 20
+                            // paddingBottom: targetHeight + 20
                         }, speed); // extra for gap underneath
                         $(qbc).stop().animate({height: targetHeight}, speed);
                     }
