@@ -1,1 +1,303 @@
-{"sections":{"main":{"type":"main-product","blocks":{"title":{"type":"title","settings":{}},"price":{"type":"price","settings":{"show_tax_and_shipping":false,"enable_product_reviews_by_price":true}},"vendor":{"type":"vendor","disabled":true,"settings":{}},"divider":{"type":"divider","settings":{"show_in_quickbuy":false}},"variant_picker":{"type":"variant_picker","settings":{"show_single":false,"select_first_variant":true,"variant_style":"listed","disable_unavailable_variants":true,"show_size_chart":true,"size_chart_variant":"SIZE","size_chart_page":"everything-about-crystal"}},"buy_buttons":{"type":"buy_buttons","settings":{"show_quantity_selector":true,"enable_payment_button":false,"show_backorder_text":true,"show_pickup_availability":true}},"description":{"type":"description","settings":{"show_in_tab":true,"open_tab":true,"icon":"","show_in_quickbuy":false}},"116d7fe7-8e7d-4c98-bbb8-8588f62d4422":{"type":"accordion","settings":{"title":"Details","icon":"","content":"<p>Collapsible tab content<\/p>","liquid":"{{ product.metafields.custom.details | metafield_tag }}","page":"","open":false,"show_in_quickbuy":false}},"4c229c52-4c37-4eeb-9684-56348de5e206":{"type":"accordion","settings":{"title":"Shipping & Returns","icon":"","content":"<p>Free standard shipping on orders over $329.10. <a href=\"\/pages\/everything-about-crystal\" title=\"About Crystal\">Full Shipping Policy<\/a><\/p><p>This product is final sale - no returns or exchanges. <a href=\"\/pages\/affiliate-program\" title=\"Affiliate Program\">Full Return Policy<\/a><\/p>","liquid":"","page":"","open":false,"show_in_quickbuy":false}},"b16c03e0-4a5a-4601-b563-b50ed7f15e9f":{"type":"related_products","settings":{"title":"Complete the Look","product_list":["a-line-print-boho-dress"]}},"5e8d4661-18c5-4561-9521-1c0eb9d1f5dd":{"type":"complementary","disabled":true,"settings":{"block_heading":"Pairs well with","enable_carousel":false,"max_products":10}}},"block_order":["title","price","vendor","divider","variant_picker","buy_buttons","description","116d7fe7-8e7d-4c98-bbb8-8588f62d4422","4c229c52-4c37-4eeb-9684-56348de5e206","b16c03e0-4a5a-4601-b563-b50ed7f15e9f","5e8d4661-18c5-4561-9521-1c0eb9d1f5dd"],"settings":{"show_breadcrumbs":true,"show_location_underneath":false,"inventory_transfers_enable":true,"enable_sticky_columns":false,"gallery_size":"large","gallery_layout":"columns-2","enable_zoom":true,"enable_video_looping":false,"enable_var_img_grouping":false,"var_img_grouping_option":"Color,Colour,Couleur,Farbe,Style"}},"8fb6173c-6019-44bd-86c5-a7a77d273391":{"type":"New-Store-Message","blocks":{"8e79a41a-6d4b-4f78-a2b2-1210cb3db551":{"type":"message","settings":{"icon":"<svg width=\"40\" height=\"40\" viewbox=\"0 0 40 40\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M36.0258 8.42488L20.6758 3.52488C20.1799 3.36606 19.6467 3.36606 19.1508 3.52488L3.80078 8.42488C3.29489 8.58397 2.8527 8.89981 2.53812 9.32674C2.22354 9.75367 2.05287 10.2696 2.05078 10.7999V30.4499C2.05078 31.4749 2.67578 32.3999 3.62578 32.7749L18.9758 38.9249C19.5758 39.1749 20.2258 39.1749 20.8508 38.9249L36.2008 32.7749C36.6613 32.5857 37.0548 32.2634 37.3309 31.8492C37.6071 31.4349 37.7533 30.9477 37.7508 30.4499V10.7999C37.7504 10.2727 37.5834 9.75911 37.2735 9.33256C36.9637 8.90601 36.527 8.58831 36.0258 8.42488ZM19.9008 5.89988L35.0258 10.7249L28.2758 12.9749L13.3758 7.99988L19.9508 5.89988H19.9008ZM18.7508 36.1499L4.55078 30.4499V13.2499L18.7508 17.9999V36.1499ZM20.0008 15.7499L4.90078 10.6999L11.3508 8.64988L26.3258 13.6499L20.0008 15.7499ZM35.2508 30.4749L21.2508 36.0749V17.9749L35.2508 13.2999V30.4749Z\" fill=\"black\"><\/path>\n<\/svg>","title":"secure global shipping","link":"shopify:\/\/products\/adjustable-drawstring-beaded-bracelet-turquoise-green-blue-turtle","btn":"learn more"}},"b90650da-0515-4dd6-9824-d61dc3624ffe":{"type":"message","settings":{"icon":"<svg width=\"40\" height=\"40\" viewbox=\"0 0 40 40\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M39.1 17.3L23.75 12.8V10C23.75 9.66848 23.6183 9.35054 23.3839 9.11612C23.1495 8.8817 22.8315 8.75 22.5 8.75H2.5C2.16848 8.75 1.85054 8.8817 1.61612 9.11612C1.3817 9.35054 1.25 9.66848 1.25 10V31.25C1.25 31.95 1.8 32.5 2.5 32.5H5.675C5.97157 33.6197 6.63009 34.6099 7.54801 35.3163C8.46593 36.0227 9.59171 36.4058 10.75 36.4058C11.9083 36.4058 13.0341 36.0227 13.952 35.3163C14.8699 34.6099 15.5284 33.6197 15.825 32.5H25.675C25.9716 33.6197 26.6301 34.6099 27.548 35.3163C28.4659 36.0227 29.5917 36.4058 30.75 36.4058C31.9083 36.4058 33.0341 36.0227 33.952 35.3163C34.8699 34.6099 35.5284 33.6197 35.825 32.5H38.75C39.0815 32.5 39.3995 32.3683 39.6339 32.1339C39.8683 31.8995 40 31.5815 40 31.25V18.5C40 18.2295 39.9123 17.9664 39.75 17.75C39.5877 17.5336 39.3596 17.3757 39.1 17.3ZM10.75 34C10.0207 34 9.32118 33.7103 8.80546 33.1945C8.28973 32.6788 8 31.9793 8 31.25C8 30.5207 8.28973 29.8212 8.80546 29.3055C9.32118 28.7897 10.0207 28.5 10.75 28.5C11.4793 28.5 12.1788 28.7897 12.6945 29.3055C13.2103 29.8212 13.5 30.5207 13.5 31.25C13.5 31.9793 13.2103 32.6788 12.6945 33.1945C12.1788 33.7103 11.4793 34 10.75 34ZM15.825 30C15.5284 28.8803 14.8699 27.8901 13.952 27.1837C13.0341 26.4773 11.9083 26.0942 10.75 26.0942C9.59171 26.0942 8.46593 26.4773 7.54801 27.1837C6.63009 27.8901 5.97157 28.8803 5.675 30H3.75V11.25H21.25V30H15.825ZM30.75 34C30.0207 34 29.3212 33.7103 28.8055 33.1945C28.2897 32.6788 28 31.9793 28 31.25C28 30.5207 28.2897 29.8212 28.8055 29.3055C29.3212 28.7897 30.0207 28.5 30.75 28.5C31.4793 28.5 32.1788 28.7897 32.6945 29.3055C33.2103 29.8212 33.5 30.5207 33.5 31.25C33.5 31.9793 33.2103 32.6788 32.6945 33.1945C32.1788 33.7103 31.4793 34 30.75 34ZM37.5 30H35.825C35.5284 28.8803 34.8699 27.8901 33.952 27.1837C33.0341 26.4773 31.9083 26.0942 30.75 26.0942C29.5917 26.0942 28.4659 26.4773 27.548 27.1837C26.6301 27.8901 25.9716 28.8803 25.675 30H23.75V15.425L37.5 19.425V30Z\" fill=\"black\"><\/path>\n<\/svg>","title":"30 days return policy","link":"shopify:\/\/products\/likemychoice®-dried-flower-bracelet-gypsophila-peach-blossom-bracelet-1","btn":"learn more"}},"924b0b14-033d-418d-b66e-237907612b59":{"type":"message","settings":{"icon":"<svg width=\"40\" height=\"40\" viewbox=\"0 0 40 40\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M22.1504 10.9501C23.3313 9.69367 24.9371 8.92113 26.6558 8.78252C28.3745 8.64392 30.0834 9.14915 31.4504 10.2001C34.9504 13.2001 34.4504 17.9751 31.9254 20.5251L19.9504 32.7501C19.8254 32.9001 19.7004 32.9001 19.4754 32.7501L7.52539 20.5001C6.85058 19.8129 6.32484 18.9938 5.98105 18.0942C5.63727 17.1945 5.48284 16.2336 5.52742 15.2715C5.57201 14.3094 5.81465 13.3669 6.24016 12.5028C6.66568 11.6388 7.26492 10.8719 8.00039 10.2501C10.6504 8.00006 14.7504 8.35006 17.3504 10.9501L19.7504 13.4001L22.1504 10.9501ZM19.7504 9.82506L20.3504 9.20006C21.9667 7.49398 24.1607 6.45137 26.5043 6.27571C28.8479 6.10006 31.1728 6.80397 33.0254 8.25006L33.0504 8.27506V8.30006C34.0525 9.14823 34.869 10.1939 35.4488 11.3718C36.0287 12.5497 36.3594 13.8345 36.4204 15.1459C36.4814 16.4574 36.2714 17.7673 35.8034 18.994C35.3354 20.2206 34.6195 21.3375 33.7004 22.2751L21.7254 34.5251C21.2558 34.9985 20.6328 35.2889 19.9682 35.3438C19.3037 35.3988 18.6414 35.2149 18.1004 34.8251L17.8504 34.6751L5.75039 22.2751C4.83258 21.3419 4.11751 20.2291 3.65003 19.0066C3.18255 17.784 2.97274 16.478 3.03377 15.1706C3.0948 13.8631 3.42535 12.5824 4.00469 11.4087C4.58402 10.235 5.39964 9.19368 6.40039 8.35006C8.24548 6.87228 10.5764 6.13758 12.9354 6.29022C15.2944 6.44286 17.5111 7.47182 19.1504 9.17506L19.1754 9.20006L19.7754 9.82506H19.7504Z\" fill=\"black\"><\/path>\n<\/svg>","title":"100% secure payments","link":"shopify:\/\/pages\/faqs","btn":"learn more"}}},"block_order":["8e79a41a-6d4b-4f78-a2b2-1210cb3db551","b90650da-0515-4dd6-9824-d61dc3624ffe","924b0b14-033d-418d-b66e-237907612b59"],"settings":{"full_width":false,"bg_color":"","margin_bottom_mb":0,"margin_bottom_tab":50,"margin_bottom":50,"mg_top_mobile":0,"mg_top_tablet":50,"mg_top_desktop":50,"box_bg":"#fceedc"}},"recommendations":{"type":"product-recommendations","disabled":true,"settings":{"title":"You may also like","show_vendor":false,"grid":4}},"b37da4dc-da29-4305-acb8-b5ad10e15270":{"type":"New-Tab-Collections","blocks":{"704666a2-788b-4b32-9c11-e0e6d552bb99":{"type":"collection","settings":{"title":"","collection":"3-28"}}},"block_order":["704666a2-788b-4b32-9c11-e0e6d552bb99"],"settings":{"full_width":false,"bg_color":"","margin_bottom_mb":20,"margin_bottom_tab":20,"margin_bottom":20,"mg_top_mobile":50,"mg_top_tablet":50,"mg_top_desktop":50,"title":"These would look cute on you...","des":"","rows":1}},"353af5b3-1d7c-4ade-8556-242263b23da6":{"type":"featured-collection","disabled":true,"settings":{"title":"These would look cute on you...","des":"","collection":"3-24","show_vendor":false,"enable_carousel":true,"grid":4,"rows":1,"use_alt_bg":true,"show_view_all":false,"full_width":false}},"2be3483d-0025-45de-81c5-6a083bb491e6":{"type":"New-Image-Item","blocks":{"386cfd67-43b7-495c-aadc-a47abd69ad0c":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/Frame_195003_d3fa88e8-60c7-48bd-8da8-87304ad3b24e.png","title":"Rings","link":"shopify:\/\/products\/adjustable-drawstring-beaded-bracelet-colorful-daisies"}},"c303fee4-1b2d-4163-b3e7-80c5dc2670ec":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/Frame_195003_1_aa7eead0-556c-4698-8574-e0e4b5f9f66b.png","title":"Earrings","link":"shopify:\/\/products\/adjustable-drawstring-beaded-bracelet-colorful-daisies"}},"ea4de798-282b-43e8-aeed-598abe562860":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/Frame_195003_2_56539f4d-74aa-45b3-b6de-5aa5d4dd7899.png","title":"Boho Dress","link":"shopify:\/\/collections\/3-28-1"}},"41b42133-633b-450b-85aa-a4b8b4fac680":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/Frame_195003_3.png","title":"Necklaces","link":"shopify:\/\/products\/adjustable-drawstring-beaded-bracelet-turquoise-green-blue-turtle"}},"aa2c6a16-94ab-4411-83eb-d8a40f9ebab0":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/banner_1on1.png","title":"","link":""}}},"block_order":["386cfd67-43b7-495c-aadc-a47abd69ad0c","c303fee4-1b2d-4163-b3e7-80c5dc2670ec","ea4de798-282b-43e8-aeed-598abe562860","41b42133-633b-450b-85aa-a4b8b4fac680","aa2c6a16-94ab-4411-83eb-d8a40f9ebab0"],"settings":{"full_width":false,"bg_color":"","margin_bottom_mb":40,"margin_bottom_tab":70,"margin_bottom":80,"mg_top_mobile":0,"mg_top_tablet":0,"mg_top_desktop":0,"text_align":"center","title":"Collection"}}},"order":["main","8fb6173c-6019-44bd-86c5-a7a77d273391","recommendations","b37da4dc-da29-4305-acb8-b5ad10e15270","353af5b3-1d7c-4ade-8556-242263b23da6","2be3483d-0025-45de-81c5-6a083bb491e6"]}
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_tax_and_shipping": false,
+            "enable_product_reviews_by_price": true
+          }
+        },
+        "vendor": {
+          "type": "vendor",
+          "disabled": true,
+          "settings": {
+          }
+        },
+        "divider": {
+          "type": "divider",
+          "settings": {
+            "show_in_quickbuy": false
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "show_single": false,
+            "select_first_variant": true,
+            "variant_style": "listed",
+            "disable_unavailable_variants": true,
+            "show_size_chart": true,
+            "size_chart_variant": "SIZE",
+            "size_chart_page": "everything-about-crystal"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity_selector": true,
+            "enable_payment_button": false,
+            "show_backorder_text": true,
+            "show_pickup_availability": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "show_in_tab": true,
+            "open_tab": true,
+            "icon": "",
+            "show_in_quickbuy": false
+          }
+        },
+        "116d7fe7-8e7d-4c98-bbb8-8588f62d4422": {
+          "type": "accordion",
+          "settings": {
+            "title": "Details",
+            "icon": "",
+            "content": "<p>Collapsible tab content<\/p>",
+            "liquid": "{{ product.metafields.custom.details | metafield_tag }}",
+            "page": "",
+            "open": false,
+            "show_in_quickbuy": false
+          }
+        },
+        "4c229c52-4c37-4eeb-9684-56348de5e206": {
+          "type": "accordion",
+          "settings": {
+            "title": "Shipping & Returns",
+            "icon": "",
+            "content": "<p>Free standard shipping on orders over $329.10. <a href=\"\/pages\/everything-about-crystal\" title=\"About Crystal\">Full Shipping Policy<\/a><\/p><p>This product is final sale - no returns or exchanges. <a href=\"\/pages\/affiliate-program\" title=\"Affiliate Program\">Full Return Policy<\/a><\/p>",
+            "liquid": "",
+            "page": "",
+            "open": false,
+            "show_in_quickbuy": false
+          }
+        },
+        "b16c03e0-4a5a-4601-b563-b50ed7f15e9f": {
+          "type": "related_products",
+          "settings": {
+            "title": "Complete the Look",
+            "product_list": [
+              "a-line-print-boho-dress"
+            ]
+          }
+        },
+        "5e8d4661-18c5-4561-9521-1c0eb9d1f5dd": {
+          "type": "complementary",
+          "disabled": true,
+          "settings": {
+            "block_heading": "Pairs well with",
+            "enable_carousel": false,
+            "max_products": 10
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "vendor",
+        "divider",
+        "variant_picker",
+        "buy_buttons",
+        "description",
+        "116d7fe7-8e7d-4c98-bbb8-8588f62d4422",
+        "4c229c52-4c37-4eeb-9684-56348de5e206",
+        "b16c03e0-4a5a-4601-b563-b50ed7f15e9f",
+        "5e8d4661-18c5-4561-9521-1c0eb9d1f5dd"
+      ],
+      "settings": {
+        "show_breadcrumbs": true,
+        "show_location_underneath": false,
+        "inventory_transfers_enable": true,
+        "enable_sticky_columns": false,
+        "gallery_size": "large",
+        "gallery_layout": "columns-2",
+        "enable_zoom": true,
+        "enable_video_looping": false,
+        "enable_var_img_grouping": false,
+        "var_img_grouping_option": "Color,Colour,Couleur,Farbe,Style"
+      }
+    },
+    "8fb6173c-6019-44bd-86c5-a7a77d273391": {
+      "type": "New-Store-Message",
+      "blocks": {
+        "8e79a41a-6d4b-4f78-a2b2-1210cb3db551": {
+          "type": "message",
+          "settings": {
+            "icon": "<svg width=\"40\" height=\"40\" viewbox=\"0 0 40 40\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M36.0258 8.42488L20.6758 3.52488C20.1799 3.36606 19.6467 3.36606 19.1508 3.52488L3.80078 8.42488C3.29489 8.58397 2.8527 8.89981 2.53812 9.32674C2.22354 9.75367 2.05287 10.2696 2.05078 10.7999V30.4499C2.05078 31.4749 2.67578 32.3999 3.62578 32.7749L18.9758 38.9249C19.5758 39.1749 20.2258 39.1749 20.8508 38.9249L36.2008 32.7749C36.6613 32.5857 37.0548 32.2634 37.3309 31.8492C37.6071 31.4349 37.7533 30.9477 37.7508 30.4499V10.7999C37.7504 10.2727 37.5834 9.75911 37.2735 9.33256C36.9637 8.90601 36.527 8.58831 36.0258 8.42488ZM19.9008 5.89988L35.0258 10.7249L28.2758 12.9749L13.3758 7.99988L19.9508 5.89988H19.9008ZM18.7508 36.1499L4.55078 30.4499V13.2499L18.7508 17.9999V36.1499ZM20.0008 15.7499L4.90078 10.6999L11.3508 8.64988L26.3258 13.6499L20.0008 15.7499ZM35.2508 30.4749L21.2508 36.0749V17.9749L35.2508 13.2999V30.4749Z\" fill=\"black\"><\/path>\n<\/svg>",
+            "title": "secure global shipping",
+            "link": "shopify:\/\/products\/adjustable-drawstring-beaded-bracelet-turquoise-green-blue-turtle",
+            "btn": "learn more"
+          }
+        },
+        "b90650da-0515-4dd6-9824-d61dc3624ffe": {
+          "type": "message",
+          "settings": {
+            "icon": "<svg width=\"40\" height=\"40\" viewbox=\"0 0 40 40\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M39.1 17.3L23.75 12.8V10C23.75 9.66848 23.6183 9.35054 23.3839 9.11612C23.1495 8.8817 22.8315 8.75 22.5 8.75H2.5C2.16848 8.75 1.85054 8.8817 1.61612 9.11612C1.3817 9.35054 1.25 9.66848 1.25 10V31.25C1.25 31.95 1.8 32.5 2.5 32.5H5.675C5.97157 33.6197 6.63009 34.6099 7.54801 35.3163C8.46593 36.0227 9.59171 36.4058 10.75 36.4058C11.9083 36.4058 13.0341 36.0227 13.952 35.3163C14.8699 34.6099 15.5284 33.6197 15.825 32.5H25.675C25.9716 33.6197 26.6301 34.6099 27.548 35.3163C28.4659 36.0227 29.5917 36.4058 30.75 36.4058C31.9083 36.4058 33.0341 36.0227 33.952 35.3163C34.8699 34.6099 35.5284 33.6197 35.825 32.5H38.75C39.0815 32.5 39.3995 32.3683 39.6339 32.1339C39.8683 31.8995 40 31.5815 40 31.25V18.5C40 18.2295 39.9123 17.9664 39.75 17.75C39.5877 17.5336 39.3596 17.3757 39.1 17.3ZM10.75 34C10.0207 34 9.32118 33.7103 8.80546 33.1945C8.28973 32.6788 8 31.9793 8 31.25C8 30.5207 8.28973 29.8212 8.80546 29.3055C9.32118 28.7897 10.0207 28.5 10.75 28.5C11.4793 28.5 12.1788 28.7897 12.6945 29.3055C13.2103 29.8212 13.5 30.5207 13.5 31.25C13.5 31.9793 13.2103 32.6788 12.6945 33.1945C12.1788 33.7103 11.4793 34 10.75 34ZM15.825 30C15.5284 28.8803 14.8699 27.8901 13.952 27.1837C13.0341 26.4773 11.9083 26.0942 10.75 26.0942C9.59171 26.0942 8.46593 26.4773 7.54801 27.1837C6.63009 27.8901 5.97157 28.8803 5.675 30H3.75V11.25H21.25V30H15.825ZM30.75 34C30.0207 34 29.3212 33.7103 28.8055 33.1945C28.2897 32.6788 28 31.9793 28 31.25C28 30.5207 28.2897 29.8212 28.8055 29.3055C29.3212 28.7897 30.0207 28.5 30.75 28.5C31.4793 28.5 32.1788 28.7897 32.6945 29.3055C33.2103 29.8212 33.5 30.5207 33.5 31.25C33.5 31.9793 33.2103 32.6788 32.6945 33.1945C32.1788 33.7103 31.4793 34 30.75 34ZM37.5 30H35.825C35.5284 28.8803 34.8699 27.8901 33.952 27.1837C33.0341 26.4773 31.9083 26.0942 30.75 26.0942C29.5917 26.0942 28.4659 26.4773 27.548 27.1837C26.6301 27.8901 25.9716 28.8803 25.675 30H23.75V15.425L37.5 19.425V30Z\" fill=\"black\"><\/path>\n<\/svg>",
+            "title": "30 days return policy",
+            "link": "shopify:\/\/products\/likemychoice®-dried-flower-bracelet-gypsophila-peach-blossom-bracelet-1",
+            "btn": "learn more"
+          }
+        },
+        "924b0b14-033d-418d-b66e-237907612b59": {
+          "type": "message",
+          "settings": {
+            "icon": "<svg width=\"40\" height=\"40\" viewbox=\"0 0 40 40\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M22.1504 10.9501C23.3313 9.69367 24.9371 8.92113 26.6558 8.78252C28.3745 8.64392 30.0834 9.14915 31.4504 10.2001C34.9504 13.2001 34.4504 17.9751 31.9254 20.5251L19.9504 32.7501C19.8254 32.9001 19.7004 32.9001 19.4754 32.7501L7.52539 20.5001C6.85058 19.8129 6.32484 18.9938 5.98105 18.0942C5.63727 17.1945 5.48284 16.2336 5.52742 15.2715C5.57201 14.3094 5.81465 13.3669 6.24016 12.5028C6.66568 11.6388 7.26492 10.8719 8.00039 10.2501C10.6504 8.00006 14.7504 8.35006 17.3504 10.9501L19.7504 13.4001L22.1504 10.9501ZM19.7504 9.82506L20.3504 9.20006C21.9667 7.49398 24.1607 6.45137 26.5043 6.27571C28.8479 6.10006 31.1728 6.80397 33.0254 8.25006L33.0504 8.27506V8.30006C34.0525 9.14823 34.869 10.1939 35.4488 11.3718C36.0287 12.5497 36.3594 13.8345 36.4204 15.1459C36.4814 16.4574 36.2714 17.7673 35.8034 18.994C35.3354 20.2206 34.6195 21.3375 33.7004 22.2751L21.7254 34.5251C21.2558 34.9985 20.6328 35.2889 19.9682 35.3438C19.3037 35.3988 18.6414 35.2149 18.1004 34.8251L17.8504 34.6751L5.75039 22.2751C4.83258 21.3419 4.11751 20.2291 3.65003 19.0066C3.18255 17.784 2.97274 16.478 3.03377 15.1706C3.0948 13.8631 3.42535 12.5824 4.00469 11.4087C4.58402 10.235 5.39964 9.19368 6.40039 8.35006C8.24548 6.87228 10.5764 6.13758 12.9354 6.29022C15.2944 6.44286 17.5111 7.47182 19.1504 9.17506L19.1754 9.20006L19.7754 9.82506H19.7504Z\" fill=\"black\"><\/path>\n<\/svg>",
+            "title": "100% secure payments",
+            "link": "shopify:\/\/pages\/faqs",
+            "btn": "learn more"
+          }
+        }
+      },
+      "block_order": [
+        "8e79a41a-6d4b-4f78-a2b2-1210cb3db551",
+        "b90650da-0515-4dd6-9824-d61dc3624ffe",
+        "924b0b14-033d-418d-b66e-237907612b59"
+      ],
+      "settings": {
+        "full_width": false,
+        "bg_color": "",
+        "margin_bottom_mb": 0,
+        "margin_bottom_tab": 50,
+        "margin_bottom": 50,
+        "mg_top_mobile": 0,
+        "mg_top_tablet": 50,
+        "mg_top_desktop": 50,
+        "box_bg": "#fceedc"
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "disabled": true,
+      "settings": {
+        "title": "You may also like",
+        "show_vendor": false,
+        "grid": 4
+      }
+    },
+    "b37da4dc-da29-4305-acb8-b5ad10e15270": {
+      "type": "New-Tab-Collections",
+      "blocks": {
+        "704666a2-788b-4b32-9c11-e0e6d552bb99": {
+          "type": "collection",
+          "settings": {
+            "title": "",
+            "collection": "3-28"
+          }
+        }
+      },
+      "block_order": [
+        "704666a2-788b-4b32-9c11-e0e6d552bb99"
+      ],
+      "settings": {
+        "full_width": false,
+        "bg_color": "",
+        "margin_bottom_mb": 20,
+        "margin_bottom_tab": 20,
+        "margin_bottom": 20,
+        "mg_top_mobile": 50,
+        "mg_top_tablet": 50,
+        "mg_top_desktop": 50,
+        "title": "These would look cute on you...",
+        "des": "",
+        "rows": 1
+      }
+    },
+    "353af5b3-1d7c-4ade-8556-242263b23da6": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "title": "These would look cute on you...",
+        "des": "",
+        "collection": "3-24",
+        "show_vendor": false,
+        "enable_carousel": true,
+        "grid": 4,
+        "rows": 1,
+        "use_alt_bg": true,
+        "show_view_all": false,
+        "full_width": false
+      }
+    },
+    "2be3483d-0025-45de-81c5-6a083bb491e6": {
+      "type": "New-Image-Item",
+      "blocks": {
+        "386cfd67-43b7-495c-aadc-a47abd69ad0c": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_195003_d3fa88e8-60c7-48bd-8da8-87304ad3b24e.png",
+            "title": "Rings",
+            "link": "shopify:\/\/products\/adjustable-drawstring-beaded-bracelet-colorful-daisies"
+          }
+        },
+        "c303fee4-1b2d-4163-b3e7-80c5dc2670ec": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_195003_1_aa7eead0-556c-4698-8574-e0e4b5f9f66b.png",
+            "title": "Earrings",
+            "link": "shopify:\/\/products\/adjustable-drawstring-beaded-bracelet-colorful-daisies"
+          }
+        },
+        "ea4de798-282b-43e8-aeed-598abe562860": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_195003_2_56539f4d-74aa-45b3-b6de-5aa5d4dd7899.png",
+            "title": "Boho Dress",
+            "link": "shopify:\/\/collections\/3-28-1"
+          }
+        },
+        "41b42133-633b-450b-85aa-a4b8b4fac680": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_195003_3.png",
+            "title": "Necklaces",
+            "link": "shopify:\/\/products\/adjustable-drawstring-beaded-bracelet-turquoise-green-blue-turtle"
+          }
+        },
+        "aa2c6a16-94ab-4411-83eb-d8a40f9ebab0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Frame_195003_1_aa7eead0-556c-4698-8574-e0e4b5f9f66b.webp",
+            "title": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "386cfd67-43b7-495c-aadc-a47abd69ad0c",
+        "c303fee4-1b2d-4163-b3e7-80c5dc2670ec",
+        "ea4de798-282b-43e8-aeed-598abe562860",
+        "41b42133-633b-450b-85aa-a4b8b4fac680",
+        "aa2c6a16-94ab-4411-83eb-d8a40f9ebab0"
+      ],
+      "settings": {
+        "full_width": false,
+        "bg_color": "",
+        "margin_bottom_mb": 40,
+        "margin_bottom_tab": 70,
+        "margin_bottom": 80,
+        "mg_top_mobile": 0,
+        "mg_top_tablet": 0,
+        "mg_top_desktop": 0,
+        "text_align": "center",
+        "title": "Collection"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "8fb6173c-6019-44bd-86c5-a7a77d273391",
+    "recommendations",
+    "b37da4dc-da29-4305-acb8-b5ad10e15270",
+    "353af5b3-1d7c-4ade-8556-242263b23da6",
+    "2be3483d-0025-45de-81c5-6a083bb491e6"
+  ]
+}
