@@ -6176,6 +6176,7 @@
                 // toggle active class on block
                 if ($block.toggleClass('expanded').hasClass('expanded')) {
                     // expanding
+                    console.log("加载号码")
                     if ($slider.length > 0) {
                         // if another block is expanded, remove its expanded class
                         var noneExpanded = $slider.find('.product-block.expanded').not($block).removeClass('expanded').length === 0;
