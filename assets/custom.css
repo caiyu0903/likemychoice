@@ -362,6 +362,14 @@ input.opt-btn:checked + .opt-label {
         top: -70px;
     }
 
+    .inners .product-form .new-input-row.new-potion-1 {
+        top: -70px;
+    }
+
+    .inners .product-form .new-input-row.new-potion-3 {
+        top: -70px;
+    }
+
     .swatch-style-icon_circle .inners .option-selector--swatch .opt-label, .inners .option-selector__btns .opt-label {
         width: 26px;
         height: 26px;
