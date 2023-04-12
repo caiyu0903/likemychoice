@@ -6096,18 +6096,17 @@
             debouncedQuickbuyResizeTimeoutID = setTimeout(() => {
                 var qbc = qbInner.closest('.quickbuy-container'),
                     block = qbc.closest('.product-block');
-                    console.log($(qbInner).outerHeight())
                 if (block) {
                     // use padding in grid
                     // also check expanded class in case it's mid close transition
                     if (block.classList.contains('expanded')) {
                         var targetHeight = 100 * 1,
-                        console.log("targetHeight: ",targetHeight)
                             expandedSiblings = [...block.parentNode.children].filter((child) => {
                                 return child !== block && child.classList.contains('expanded');
                             }),
                             speed = expandedSiblings.length > 0 ? 0 : droppyDownAnimSpeed; // slide down instantly if a neighbour is expanded
-                        $(block).stop().animate({
+                            console.log("targetHeight: ",targetHeight)
+                            $(block).stop().animate({
                             // paddingBottom: targetHeight + 20
                         }, speed); // extra for gap underneath
                         $(qbc).stop().animate({height: targetHeight}, speed);
