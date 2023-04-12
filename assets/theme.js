@@ -6090,8 +6090,8 @@
         }
 
         var debouncedQuickbuyResizeTimeoutID = -1;
-
-        function debouncedQuickbuyResize(qbInner) {
+         //  快速购买调整大小
+        function debouncedQuickbuyResize(qbInner) { 
             clearTimeout(debouncedQuickbuyResizeTimeoutID);
             debouncedQuickbuyResizeTimeoutID = setTimeout(() => {
                 var qbc = qbInner.closest('.quickbuy-container'),
