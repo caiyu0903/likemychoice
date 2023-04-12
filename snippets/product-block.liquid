@@ -205,6 +205,8 @@
                                 
                                 
                                 
+                                
+                                
                                 </script>
                                 <button
                                         class="view-in-space"
@@ -510,6 +512,8 @@
                      
                      
                      
+                    
+                    
                     
                     
                     
@@ -863,7 +867,7 @@
                             {%- endif -%}
                         {%- endif -%}
                     </div>
-                    {% if template.name == 'collection' %}
+                    {% if template.name == 'collection' or template.name == 'product' %}
                         <div class="new-product-action hover_show hide-pc">
                             {% assign current_variant = product.selected_or_first_available_variant %}
                             {%- assign product_form_present = false -%}
