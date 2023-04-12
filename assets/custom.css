@@ -373,7 +373,7 @@ input.opt-btn:checked + .opt-label {
 @media (max-width: 1024px) {
     .inners .product-form .new-input-row {
         position: absolute;
-        left: 10px;
+        left: 4px;
         /*display: none;*/
     }
 
