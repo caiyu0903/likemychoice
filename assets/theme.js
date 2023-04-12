@@ -6315,7 +6315,7 @@
                 //Heights are fixed. Check two in case somebody has expanded one...
                 var blockHeight = Math.min($blocks.first().outerHeight(), $($blocks[1]).outerHeight());
                 var blockPageOffset = $blocks.first().offset().top;
-                console.log("blockPageOffset: ", blockPageOffset)
+                console.log( "blockPageOffset: ", blockPageOffset)
                 $blocks.each(function (index) {
                     var currOffsetTop = $(this).offset().top;
                     if (index == 0) {
