@@ -217,6 +217,7 @@
                                 
                                 
                                 
+                                
                                 </script>
                                 <button
                                         class="view-in-space"
@@ -540,6 +541,7 @@
                     
                     
                     
+                    
                     </script>
                 </div>
             
@@ -722,7 +724,7 @@
                                                 
                                                 {%- if product_option.values.size > option_limit and is_swatch -%}
                                                     {%- assign remaining = product_option.values.size | minus: option_limit -%}
-                                                    <span class="product-block-options__more-label">{{ 'collections.general.more_swatches' | t: count: remaining }}</span>
+                                                    <span class="product-block-options__more-label sada">{{ 'collections.general.more_swatches' | t: count: remaining }}</span>
                                                 {%- endif -%}
                                             
                                             </div>
