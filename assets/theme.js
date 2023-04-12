@@ -6057,6 +6057,7 @@
 
     theme.loadQuickbuy = function () {
         // utility function for quickbuy (closes all quickbuys in passed blocks, in a collection grid)
+        // 快速购买的实用函数(在一个集合网格中关闭所有传入块中的快速购买)
         function contractDetail($blocks, speed) {
             if ($blocks.length > 0) {
                 $blocks.removeClass('expanded');
@@ -6090,8 +6091,8 @@
         }
 
         var debouncedQuickbuyResizeTimeoutID = -1;
-
-        function debouncedQuickbuyResize(qbInner) {
+         //  快速购买调整大小
+        function debouncedQuickbuyResize(qbInner) { 
             clearTimeout(debouncedQuickbuyResizeTimeoutID);
             debouncedQuickbuyResizeTimeoutID = setTimeout(() => {
                 var qbc = qbInner.closest('.quickbuy-container'),
@@ -6100,23 +6101,24 @@
                     // use padding in grid
                     // also check expanded class in case it's mid close transition
                     if (block.classList.contains('expanded')) {
-                        var targetHeight = $(qbInner).outerHeight(),
+                        var targetHeight = 100 * 1,
                             expandedSiblings = [...block.parentNode.children].filter((child) => {
                                 return child !== block && child.classList.contains('expanded');
                             }),
                             speed = expandedSiblings.length > 0 ? 0 : droppyDownAnimSpeed; // slide down instantly if a neighbour is expanded
-
-                        $(block).stop().animate({
-                            paddingBottom: targetHeight + 20
+                            $(block).stop().animate({
+                            // paddingBottom: targetHeight + 20
                         }, speed); // extra for gap underneath
-                        $(qbc).stop().animate({height: targetHeight}, speed);
+                        $(qbc).css("height",'100%')
+                        // $(qbc).stop().animate({height: targetHeight}, speed);
                     }
                 } else {
                     // use height in carousel
                     // - if not empty (e.g. post-close tidy-up)
                     if (qbInner.childElementCount > 0) {
                         $(qbc).stop().animate({
-                            height: $(qbInner).outerHeight()
+                            // height: $(qbInner).outerHeight()
+                            // height: 100%
                         }, droppyDownAnimSpeed);
                     }
                 }
@@ -6140,7 +6142,15 @@
                 }
             };
         }
-
+        $(function () {
+            $(".new-learn-more").click(function () {
+                $(this).closest(".new-rich-containers").find('.new-rich-text').toggleClass("expanded");
+              });
+             theme.initProductGallery($('.product-list .product-block .inners').find('.product-form'));
+            
+            $('.product-list .product-block .inners').find('.product-form').trigger('load-product-form');
+            
+          });
         // quick buy - managing slide-down quickbuy in both grids and carousels
         var droppyDownAnimSpeed = 500;
         $(document).on('click', '.product-list .product-block:not(.collection-block):not(.main-search-result) .quickbuy-toggle', function () {
@@ -6194,10 +6204,8 @@
                     } else {
                         // close expanded siblings
                         var $expandedSiblings = $block.siblings('.expanded');
-
                         $expandedSiblings.each(function () {
                             contractDetail($(this), 0);
-
                             // unload existing quickbuy
                             $('.product-form', this).trigger('unload-product-form');
                             theme.destroyProductGallery(this);
@@ -6233,7 +6241,6 @@
                         });
 
                         $detailCont.html($newDetail);
-
                         // the order of these is important:
                         theme.initProductGallery($quickbuyCont); // 1
                         $quickbuyCont.find('.product-form').trigger('load-product-form'); // 2
@@ -6255,9 +6262,8 @@
                     if ($('.section-header').css('position') == 'sticky') {
                         scrollOffset -= $('.section-header').height();
                     }
-
                     if (scrollMode == 'qb') {
-                        $('html:not(:animated),body:not(:animated)').animate({scrollTop: $quickbuyCont.offset().top + scrollOffset}, 500);
+                        // $('html:not(:animated),body:not(:animated)').animate({scrollTop: $quickbuyCont.offset().top + scrollOffset}, 500);
                     } else {
                         if ($slider.length > 0) {
                             // simple for slider
