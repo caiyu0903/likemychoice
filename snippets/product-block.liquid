@@ -913,7 +913,7 @@
                     {% endif %}
                     {% if settings.quickbuy_style == 'button' %}
                         {% unless no_quick_buy %}
-                            <a class="btn btn--secondary quickbuy-toggle new-product-action hover_show"
+                            <a class="btn btn--secondary quickbuy-toggle new-product-action hover_show hide-mobile"
                                href="{{ product_url }}">{{ 'products.quick_buy.launch' | t }}</a>
                         {% endunless %}
                     {% endif %}
