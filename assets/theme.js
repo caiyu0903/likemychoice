@@ -6057,6 +6057,7 @@
 
     theme.loadQuickbuy = function () {
         // utility function for quickbuy (closes all quickbuys in passed blocks, in a collection grid)
+        // 快速购买的实用函数(在一个集合网格中关闭所有传入块中的快速购买)
         function contractDetail($blocks, speed) {
             if ($blocks.length > 0) {
                 $blocks.removeClass('expanded');
