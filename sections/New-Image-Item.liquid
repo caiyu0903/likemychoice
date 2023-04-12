@@ -44,12 +44,14 @@
                 </div>
             
             </div>
-            <div class="swiper-button-next swiper-button-next-{{ section.id }} hide-mobile">
-                {% render 'New-Arrow-Next' %}
-            </div>
-            <div class="swiper-button-prev swiper-button-prev-{{ section.id }} hide-mobile">
-                {% render 'New-Arrow-Prev' %}
-            </div>
+            {% if section.settings.enable_slider != blank %}
+                <div class="swiper-button-next swiper-button-next-{{ section.id }} hide-mobile">
+                    {% render 'New-Arrow-Next' %}
+                </div>
+                <div class="swiper-button-prev swiper-button-prev-{{ section.id }} hide-mobile">
+                    {% render 'New-Arrow-Prev' %}
+                </div>
+            {% endif %}
         </div>
     </div>
 </div>
