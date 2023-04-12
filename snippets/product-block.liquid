@@ -848,11 +848,9 @@
                         {%- endif -%}
                     </div>
                     {% if template.name == 'collection' %}
-<<<<<<< HEAD
-                        <div class="new-product-action hover_show" style="display: none">
-=======
+                    
+                    <div class="new-product-action hover_show" style="display: none">
                         <div class="new-product-action hover_show hide-pc">
->>>>>>> origin/xinkaifa
                             {% assign current_variant = product.selected_or_first_available_variant %}
                             {%- assign product_form_present = false -%}
                             {%- capture original_select -%}
@@ -914,30 +912,30 @@
                                 {% endif %}
                             {% endform %}
                         </div>
-                    {% endif %}
-                    {% if settings.quickbuy_style == 'button' %}
-                        {% unless no_quick_buy %}
-<<<<<<< HEAD
-                            <a class="btn btn--secondary quickbuy-toggle new-product-action hover_show"
-=======
-                            <a class="btn btn--secondary quickbuy-toggle new-product-action hover_show hide-mobile"
->>>>>>> origin/xinkaifa
-                               href="{{ product_url }}">{{ 'products.quick_buy.launch' | t }}</a>
-                        {% endunless %}
-                    {% endif %}
+                        {% endif %}
+                        {% if settings.quickbuy_style == 'button' %}
+                            {% unless no_quick_buy %}
+                                <<<<<<< HEAD
+                                <a class="btn btn--secondary quickbuy-toggle new-product-action hover_show"
+                                =======
+                                <a class="btn btn--secondary quickbuy-toggle new-product-action hover_show hide-mobile"
+                                >>>>>>> origin/xinkaifa
+                                    href="{{ product_url }}">{{ 'products.quick_buy.launch' | t }}</a>
+                            {% endunless %}
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    {%- if settings.quickbuy_style != 'off' -%}
-        {%- unless no_quick_buy_markup or no_quick_buy -%}
-            <div class="quickbuy-container">
-                <div class="new-quickbuy-container">
-                    <a href="#" class="close-detail" aria-label="{{ 'products.quick_buy.close' | t }}"
-                       tabindex="-1">{% render 'svg-x', stroke_width: 1 %}</a>
-                    <div class="inner"></div>
+        {%- if settings.quickbuy_style != 'off' -%}
+            {%- unless no_quick_buy_markup or no_quick_buy -%}
+                <div class="quickbuy-container">
+                    <div class="new-quickbuy-container">
+                        <a href="#" class="close-detail" aria-label="{{ 'products.quick_buy.close' | t }}"
+                           tabindex="-1">{% render 'svg-x', stroke_width: 1 %}</a>
+                        <div class="inner"></div>
+                    </div>
                 </div>
-            </div>
-        {%- endunless -%}
-    {%- endif -%}
-</div>
+            {%- endunless -%}
+        {%- endif -%}
+    </div>
