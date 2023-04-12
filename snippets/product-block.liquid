@@ -848,7 +848,7 @@
                         {%- endif -%}
                     </div>
                     {% if template.name == 'collection' %}
-                        <div class="new-product-action hover_show" style="display: none">
+                        <div class="new-product-action hover_show hide-pc">
                             {% assign current_variant = product.selected_or_first_available_variant %}
                             {%- assign product_form_present = false -%}
                             {%- capture original_select -%}
