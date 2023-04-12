@@ -6101,7 +6101,7 @@
                     // use padding in grid
                     // also check expanded class in case it's mid close transition
                     if (block.classList.contains('expanded')) {
-                        var targetHeight = $(qbInner).outerHeight(),
+                        var targetHeight = 100%,
                             expandedSiblings = [...block.parentNode.children].filter((child) => {
                                 return child !== block && child.classList.contains('expanded');
                             }),
@@ -6110,7 +6110,7 @@
                         $(block).stop().animate({
                             // paddingBottom: targetHeight + 20
                         }, speed); // extra for gap underneath
-                        // $(qbc).stop().animate({height: targetHeight}, speed);
+                        $(qbc).stop().animate({height: targetHeight}, speed);
                     }
                 } else {
                     // use height in carousel
