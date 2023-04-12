@@ -370,6 +370,10 @@ input.opt-btn:checked + .opt-label {
     display: none;
 }
 
+.section-footer__text-block__social .new-mobile {
+    display: none;
+}
+
 @media (max-width: 1024px) {
     .inners .product-form .new-input-row {
         position: absolute;
