@@ -6232,7 +6232,6 @@
                         });
 
                         $detailCont.html($newDetail);
-
                         // the order of these is important:
                         theme.initProductGallery($quickbuyCont); // 1
                         $quickbuyCont.find('.product-form').trigger('load-product-form'); // 2
@@ -6255,7 +6254,6 @@
                         scrollOffset -= $('.section-header').height();
                     }
                     if (scrollMode == 'qb') {
-                        console.log("$('html:not(:animated),body:not(:animated)'): ",$('html:not(:animated),body:not(:animated)'))
                         // $('html:not(:animated),body:not(:animated)').animate({scrollTop: $quickbuyCont.offset().top + scrollOffset}, 500);
                     } else {
                         if ($slider.length > 0) {
