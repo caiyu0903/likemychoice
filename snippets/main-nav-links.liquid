@@ -52,7 +52,7 @@
             </div>
             {% if has_dropdown %}
                 <a class="navigation__children-toggle" href="#">{% render 'icon-toggle-menu', stroke_width: 1.3 %}</a>
-                
+                <a class="mobile-nav-back" href="#">{% render 'icon-toggle-menu', stroke_width: 1.3 %}</a>
                 <div id="NavigationTier2-{{ forloop.index }}{% if mobile %}-mob{% endif %}"
                      class="navigation__tier-2-container navigation__child-tier">
                     {%- for block in section.blocks -%}
