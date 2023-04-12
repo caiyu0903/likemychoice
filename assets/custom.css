@@ -165,7 +165,7 @@
 }
 
 input.opt-btn:checked + .opt-label {
-    border: 1px rgb(46, 46, 46) solid;
+    border: 1px #dd8c32 solid;
     cursor: default;
 }
 
