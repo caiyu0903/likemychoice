@@ -354,9 +354,12 @@ input.opt-btn:checked + .opt-label {
 @media (max-width: 1024px) {
     .inners .product-form .new-input-row {
         position: absolute;
-        top: -70px;
         left: 10px;
         /*display: none;*/
+    }
+
+    .inners .product-form .new-input-row.new-potion-2 {
+        top: -70px;
     }
 
     .swatch-style-icon_circle .inners .option-selector--swatch .opt-label, .inners .option-selector__btns .opt-label {
