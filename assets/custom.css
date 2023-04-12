@@ -347,6 +347,7 @@ input.opt-btn:checked + .opt-label {
     width: 68%;
     position: relative;
     background-color: #fff;
+    box-shadow: 0 15px 45px #0000001a;
 }
 
 @media (max-width: 1024px) {
