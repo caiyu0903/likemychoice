@@ -6117,7 +6117,7 @@
                     if (qbInner.childElementCount > 0) {
                         $(qbc).stop().animate({
                             // height: $(qbInner).outerHeight()
-                            height: 100%
+                            // height: 100%
                         }, droppyDownAnimSpeed);
                     }
                 }
