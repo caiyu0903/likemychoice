@@ -25,6 +25,8 @@ for (let i = 0; i < new_adapt_inners.length; i++) {
         // var script = document.createElement("script");
         // script.src = "mobile.js";
         // document.head.appendChild(script);
+    } else {
+        new_adapt_inners[i].parentNode.removeChild(new_adapt_inners[i])
     }
 }
 
