@@ -177,6 +177,7 @@ input.opt-btn:checked + .opt-label {
 .new-input-row .option-selector__btns .opt-label {
     width: 32px;
     height: 32px;
+    padding: 0;
 }
 
 .new-gallery {
