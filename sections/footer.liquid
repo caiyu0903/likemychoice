@@ -130,8 +130,8 @@
                                     
                                     {% if block.settings.show_social_icons != blank %}
                                         <div class="section-footer__text-block__social">
-                                            <p class="capitalize"
-                                                style="color: #FFFFFF">follow us</p>
+                                            <h4 class="capitalize new-sub-title new-custom-subtitle"
+                                                style="color: #FFFFFF">follow us</h4>
                                             {% capture icon_size %}{% if block.settings.soc_icons_large %}x46{% else %}x30{% endif %}{% endcapture %}
                                             {% capture container_class %}{% if block.settings.soc_icons_large %}social-links--large{% else %}{% endif %}{% endcapture %}
                                             {% render 'social-icons', icon_setting: settings.social_custom_icon_footer, icon_size: icon_size, container_class: container_class %}
