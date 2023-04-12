@@ -6101,7 +6101,8 @@
                     // use padding in grid
                     // also check expanded class in case it's mid close transition
                     if (block.classList.contains('expanded')) {
-                        var targetHeight = 100,
+                        var targetHeight = 100 * 1,
+                        console.log("targetHeight: ",targetHeight)
                             expandedSiblings = [...block.parentNode.children].filter((child) => {
                                 return child !== block && child.classList.contains('expanded');
                             }),
