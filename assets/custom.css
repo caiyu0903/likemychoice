@@ -535,7 +535,7 @@ input.opt-btn:checked + .opt-label {
     }
 
     .new-navigation__mobile-social .new-footer {
-        
+        display: none;
     }
 }
 
