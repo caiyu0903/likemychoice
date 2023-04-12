@@ -515,6 +515,10 @@ input.opt-btn:checked + .opt-label {
     .new-navigation__mobile-social .social-links {
         padding-left: 8px;
     }
+
+    .navigation__item--open .navigation__children-toggle {
+        display: none;
+    }
 }
 
 
