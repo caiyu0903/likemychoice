@@ -311,7 +311,8 @@ input.opt-btn:checked + .opt-label {
 }
 
 .inners .product-block-options__more-label {
-    margin-top: 15px;
+    margin-top: 7px;
+    margin-bottom: 0;
 }
 
 #shopify-section-template--16739750281442__b37da4dc-da29-4305-acb8-b5ad10e15270 .new-tab-title-list {
