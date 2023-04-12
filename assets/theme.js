@@ -6194,7 +6194,7 @@
                     } else {
                         // close expanded siblings
                         var $expandedSiblings = $block.siblings('.expanded');
-console.log("dsada")
+                       console
                         $expandedSiblings.each(function () {
                             contractDetail($(this), 0);
 
