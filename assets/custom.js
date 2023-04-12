@@ -18,7 +18,7 @@
 
 // 移动端 产品卡片
 let new_adapt_inners = document.querySelectorAll('.new-adapt-product-block .inners');
-let
+let new_yuan_inner = document.querySelectorAll('.new-adapt-product-block .block-inner');
 if (/(iPhone|iPad|iPod|Android|Mobile)/i.test(navigator.userAgent) || window.screen.width < 768) {
     // var script = document.createElement("script");
     // script.src = "mobile.js";
