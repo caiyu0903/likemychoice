@@ -513,7 +513,7 @@ input.opt-btn:checked + .opt-label {
     }
 
     .new-navigation__mobile-social .social-links {
-        
+        padding-left: 8px;
     }
 }
 
