@@ -6,7 +6,7 @@
             </h3>
         {% endif %}
         <div class="new-image-container">
-            <div class="new-image-item-container swiper-{{ section.id }}">
+            <div class="new-image-item-container {% if section.settings.enable_slider != blank %} swiper-{{ section.id }}{% endif %}">
                 <div class="new-image-item-frame swiper-wrapper scroll-snap-mobile">
                     {% for block in section.blocks %}
                         {% assign item = forloop.length %}
