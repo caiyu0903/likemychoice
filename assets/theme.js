@@ -6090,8 +6090,8 @@
         }
 
         var debouncedQuickbuyResizeTimeoutID = -1;
-
-        function debouncedQuickbuyResize(qbInner) {
+         //  快速购买调整大小
+        function debouncedQuickbuyResize(qbInner) { 
             clearTimeout(debouncedQuickbuyResizeTimeoutID);
             debouncedQuickbuyResizeTimeoutID = setTimeout(() => {
                 var qbc = qbInner.closest('.quickbuy-container'),
@@ -6255,8 +6255,7 @@
                     if ($('.section-header').css('position') == 'sticky') {
                         scrollOffset -= $('.section-header').height();
                     }
-                    var offsetTop = typeof $block.data('offsetTop') != 'undefined' ? $block.data('offsetTop') : $block.offset().top;
-                    console.log("$offsetTop: ",$offsetTop)
+
                     if (scrollMode == 'qb') {
                         $('html:not(:animated),body:not(:animated)').animate({scrollTop: $quickbuyCont.offset().top + scrollOffset}, 500);
                     } else {
@@ -6265,7 +6264,7 @@
                             $('html:not(:animated),body:not(:animated)').animate({scrollTop: $block.offset().top}, 500);
                         } else {
                             // need to use top of block when no quickbuys are visible
-                            // saveCollectionPageData();
+                            saveCollectionPageData();
                             var offsetTop = typeof $block.data('offsetTop') != 'undefined' ? $block.data('offsetTop') : $block.offset().top;
                             $('html:not(:animated),body:not(:animated)').animate({scrollTop: offsetTop + scrollOffset}, 500);
                         }
