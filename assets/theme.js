@@ -6196,7 +6196,6 @@
                         var $expandedSiblings = $block.siblings('.expanded');
                         $expandedSiblings.each(function () {
                             contractDetail($(this), 0);
-
                             // unload existing quickbuy
                             $('.product-form', this).trigger('unload-product-form');
                             theme.destroyProductGallery(this);
