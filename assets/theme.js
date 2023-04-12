@@ -6189,7 +6189,6 @@
                             $('.gallery', $quickbuyCont).off(this.namespace);
                             $('.slideshow', $quickbuyCont).slick('unslick');
                             // unload components
-                            console.log("niaho")
                             unloadComponents($quickbuyCont);
                         }
                     } else {
