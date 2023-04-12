@@ -1066,6 +1066,7 @@
     "show_free_shipping_bar": false,
     "free_shipping_bar_col_under": "#171717",
     "enable_custom_theme_css": true,
+    "checkout_logo_image": "shopify:\/\/shop_images\/Frame_37.png",
     "checkout_accent_color": "#dd8c32",
     "checkout_button_color": "#dd8c32",
     "sections": {

@@ -43,7 +43,7 @@
     {% endif %}
     
     <div class="product-detail quickbuy-content spaced-row container{% if current_variant.compare_at_price > current_variant.price %} variant-status--on-sale{% endif %}{% if current_variant.available == false %} variant-status--unavailable{% endif %}">
-        <div class="gallery product-left gallery--layout-{{ section.settings.gallery_layout }} gallery-size-{{ section.settings.gallery_size }} product-column-left {% if product.media.size > 1 %}has-thumbnails{% endif %}"
+        <div class="gallery product-left  gallery--layout-{{ section.settings.gallery_layout }}  gallery-size-{{ section.settings.gallery_size }} product-column-left {% if product.media.size > 1 %}has-thumbnails{% endif %}"
              data-cc-animate
              data-cc-animate-delay="0.2s"
              data-variant-image-grouping="{{ section.settings.enable_var_img_grouping }}"
@@ -82,6 +82,7 @@
                     {% if models.size > 0 %}
                         <script type="application/json" class="model-json">
                             {{- product.media | where: 'media_type', 'model' | json -}}
+                        
                         
                         
                         
@@ -835,6 +836,7 @@
             
             <script type="application/json" id="ProductJson-{{ product.id }}">
         {{- product | json -}}
+            
             
             
             
