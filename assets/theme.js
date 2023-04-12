@@ -889,7 +889,8 @@
                 callback();
             }
         }
-    };
+    }
+
     (() => {
         theme.initAnimateOnScroll = function () {
             if (document.body.classList.contains('cc-animate-enabled') && window.innerWidth >= 768) {
@@ -1140,7 +1141,6 @@
             this.focusedClass = 'is-focused';
             this.searchString = '';
             this.listboxOpen = false;
-
             // Set the selected option
             if (!this.selectedOption) {
                 this.selectedOption = this.listbox.firstElementChild;
@@ -1158,6 +1158,7 @@
 
         /**
          * Adds event listeners when the options list is visible
+         * 当选项列表可见时，添加事件侦听器
          */
         addListboxOpenEvents() {
             this.mouseoverHandler = this.handleMouseover.bind(this);
@@ -1173,6 +1174,7 @@
 
         /**
          * Removes event listeners added when the options list was visible
+         * 删除选项列表可见时添加的事件侦听器
          */
         removeListboxOpenEvents() {
             this.listbox.removeEventListener('mouseover', this.mouseoverHandler);
@@ -1183,6 +1185,7 @@
 
         /**
          * Handles a 'keydown' event on the custom select element
+         * 处理自定义选择元素上的“keydown”事件
          * @param {Object} e - The event object
          */
         handleKeydown(e) {
@@ -1196,6 +1199,7 @@
 
         /**
          * Handles a 'mousedown' event on the button element
+         * 处理button元素上的'mousedown'事件
          * @param {Object} e - The event object
          */
         handleMousedown(e) {
@@ -1296,7 +1300,9 @@
 
         /**
          * Sets the button width to the same as the longest option, to prevent
+         * 将按钮宽度设置为与最长选项相同，以防止
          * the button width from changing depending on the option selected
+         * 按钮宽度根据所选选项而改变
          */
         setButtonWidth() {
             // Get the width of an element without side padding
@@ -1325,6 +1331,7 @@
             this.listbox.setAttribute('aria-hidden', 'false');
 
             // Slight delay required to prevent blur event being fired immediately
+            // 轻微延迟需要防止模糊事件被立即发射
             setTimeout(() => {
                 this.focusOption(this.selectedOption);
                 this.listbox.focus();
@@ -1335,6 +1342,7 @@
 
         /**
          * Hides the options list
+         * 隐藏选项列表
          */
         hideListbox() {
             if (!this.listboxOpen) return;
@@ -1384,15 +1392,15 @@
 
         /**
          * Focuses an option
-         * @param {HTMLElement} option - The <li> element of the option to focus
+         * @param {HTMLElement} option - The <li> element of the option to focus 要聚焦的选项的<li>元素
          */
         focusOption(option) {
-            // Remove focus on currently focused option (if there is one)
+            // Remove focus on currently focused option (if there is one) 删除当前聚焦选项的焦点(如果有的话)
             if (this.focusedOption) {
                 this.focusedOption.classList.remove(this.focusedClass);
             }
 
-            // Set focus on the option
+            // Set focus on the option 把焦点放在选项上
             this.focusedOption = option;
             this.focusedOption.classList.add(this.focusedClass);
 
@@ -1411,6 +1419,7 @@
 
         /**
          * Handles a 'selectOption' event on the custom select element
+         * 处理自定义选择元素上的'selectOption'事件
          * @param {Object} e - The event object (pass value in detail.value)
          */
         handleSelectOption(e) {
@@ -1422,15 +1431,16 @@
 
         /**
          * Selects an option
+         * 选择一个选项
          * @param {HTMLElement} option - The option <li> element
          */
         selectOption(option) {
             if (option !== this.selectedOption) {
-                // Switch aria-selected attribute to selected option
+                // Switch aria-selected attribute to selected option 将aria-selected属性切换到所选选项
                 option.setAttribute('aria-selected', 'true');
                 this.selectedOption.setAttribute('aria-selected', 'false');
 
-                // Update swatch colour in the button
+                // Update swatch colour in the button 更新按钮中的色板颜色
                 if (this.swatches) {
                     if (option.dataset.swatch) {
                         this.button.dataset.swatch = option.dataset.swatch;
@@ -1439,17 +1449,19 @@
                     }
                 }
 
-                // Update the button text and set the option as active
+                // Update the button text and set the option as active 更新按钮文本并将该选项设置为活动
                 this.button.firstChild.textContent = option.firstElementChild.textContent;
                 this.listbox.setAttribute('aria-activedescendant', option.id);
                 this.selectedOption = document.getElementById(option.id);
 
                 // If a native select element exists, update its selected value and trigger a 'change' event
+                // 如果存在原生选择元素，则更新其所选值并触发'change'事件
                 if (this.nativeSelect) {
                     this.nativeSelect.value = option.dataset.value;
                     this.nativeSelect.dispatchEvent(new Event('change', {bubbles: true}));
                 } else {
                     // Trigger a 'change' event on the custom select element
+                    // 在自定义选择元素上触发一个'change'事件
                     var detail = {selectedValue: option.dataset.value};
                     this.el.dispatchEvent(new CustomEvent('change', {bubbles: true, detail}));
                 }
@@ -3394,6 +3406,7 @@
                 theme.beforeCarouselLoadEventBlockFix($this);
 
                 // run after carousel is initialised
+                //在carousel初始化后运行
                 $this.on('initialized.owl.carousel', function () {
                     // restore data-src
                     $this.find('[data-src-temp]').each(function () {
@@ -3409,7 +3422,21 @@
                         $this.trigger('refresh.owl.carousel');
                     }, 10);
                 });
-
+                $this.on('.carousels', function () {
+                    // restore data-src
+                    $this.find('[data-src-temp]').each(function () {
+                        $(this).attr('data-src', $(this).attr('data-src-temp')).removeAttr('data-src-temp');
+                    });
+                    // lazysizes on primary images
+                    $this.find('.product-block__image--primary .lazyload--manual, .product-block__image--secondary[data-image-index="1"] .lazyload--manual, .product-block-options__item.lazyload--manual').removeClass('lazyload--manual').addClass('lazyload');
+                    // ensure clones are processed from scratch
+                    theme.ProductBlockManager.loadImages($this.closest('[data-section-type]'));
+                    // recalculate widths, after the above's async calls
+                    setTimeout(function () {
+                        $this.data('owl.carousel').invalidate('width');
+                        $this.trigger('refresh.owl.carousel');
+                    }, 10);
+                });
                 // run after carousel is initialised or resized
                 $this.on('initialized.owl.carousel resized.owl.carousel', function (evt) {
                     // only loop if items do not all fit on screen, in non-fixed mode
@@ -3535,7 +3562,7 @@
         }
     };
 
-    // Enables any images inside a container
+    // Enables any images inside a container 启用容器内的任何图像
     theme.awakenImagesFromSlumber = function ($cont) {
         $cont.find('.lazyload--manual:not(.lazyload)').addClass('lazyload');
     };
@@ -3549,6 +3576,7 @@
     };
 
     // Use non-breaking space to attempt to avoid orphans
+    // 使用不间断的空格来避免孤儿
     theme.avoidUnecessaryOrphans = function (element) {
         if (theme.settings.avoid_orphans) {
             var innerTextSplit = element.innerText.split(' ');
@@ -3864,6 +3892,7 @@
 
         _.loadImages = function (container) {
             var container = container;
+
             if (typeof container === 'undefined') {
                 container = $('body');
             }
@@ -4327,7 +4356,7 @@
     };
 
     window.customElements.define('cart-form', CartForm);
-    ;
+
     var CCCartCrossSell = class extends HTMLElement {
         connectedCallback() {
             // not needed immediately
@@ -4364,7 +4393,7 @@
     };
 
     window.customElements.define('cc-cart-cross-sell', CCCartCrossSell);
-    ; // must be after product-blocks.js
+    // must be after product-blocks.js
     var CCFetchedContent = class extends HTMLElement {
         connectedCallback() {
             fetch(this.dataset.url).then((response) => {
@@ -4392,7 +4421,7 @@
     };
 
     window.customElements.define('cc-fetched-content', CCFetchedContent);
-    ;
+
     theme.LoadFilterer = function (section) {
         this.$container = section.$container;
         this.namespace = section.namespace;
@@ -5047,8 +5076,15 @@
                     evt.preventDefault();
                     $(this).siblings('.navigation__children-toggle').trigger('click');
                 });
+
             }
 
+            // event: close second tier
+
+            $mobileDrawer.on('click', '.navigation__item--open', function (evt) {
+                evt.preventDefault();
+                $(this).closest('.mobile-navigation-drawer').removeClass('mobile-navigation-drawer--child-open').find('.navigation__tier-1 > .navigation__item--open').removeClass('navigation__item--open');
+            });
             // event: close second tier
             $mobileDrawer.on('click', '.mobile-nav-back', function (evt) {
                 evt.preventDefault();
@@ -5682,7 +5718,7 @@
         });
     };
 
-    // Manage option dropdowns
+    // Manage option dropdowns 
     theme.productData = {};
     theme.OptionManager = new function () {
         var _ = this;
@@ -5698,7 +5734,7 @@
             variantIdInputs: '[name="id"]',
             purchaseForm: '.product-purchase-form',
             primaryVariantIdInput: '.product-purchase-form [name="id"]',
-            submitButton: '.product-purchase-form button[type="submit"]',
+            submitButton: '.product-purchase-form .button[type="submit"]',
             multiOption: '.option-selectors',
             customOption: '.custom-option',
             installmentsFormSuffix: '-installments'
@@ -5856,7 +5892,7 @@
             var productData = _.getProductData($productForm);
             $productForm.addClass('theme-init');
 
-            // init option selectors
+            // init option selectors 初始化选择器
             $productForm.find(_.selectors.multiOption).on('change.themeProductOptions', function () {
                 var selectedOptions = [];
                 $(this).find('.option-selector').each(function () {
@@ -5886,7 +5922,7 @@
                 // trigger change
                 $productForm.find(_.selectors.variantIdInputs).val(variant.id);
 
-                // a jQuery event may not be picked up by all listeners
+                // a jQuery event may not be picked up by all listeners jQuery事件可能不会被所有监听器拾取
                 $productForm.find(_.selectors.variantIdInputs).each(function () {
                     this.dispatchEvent(
                         new CustomEvent('change', {
@@ -5899,6 +5935,7 @@
             });
 
             // init custom options (mirror in purchase form for Buy Now button)
+            // 初始化自定义选项(在购买表单中镜像立即购买按钮)
             $productForm.find(_.selectors.customOption).each(function () {
                 var $input = $(this).find('input:first, textarea, select');
                 $('<input type="hidden">').attr({
@@ -5934,13 +5971,15 @@
             });
 
             // init variant ids
+            // 初始化变量id
             $productForm.find(_.selectors.primaryVariantIdInput).each(function () {
-                // change state for original dropdown
+                // change state for original dropdown 处理无线电-仅更新检查
                 $(this).on('change.themeProductOptions firstrun.themeProductOptions', function (e) {
                     if ($(this).is('input[type=radio]:not(:checked)')) {
-                        return; // handle radios - only update for checked
+                        return; // handle radios - only update for checked 处理无线电-仅更新检查
                     }
                     // If variant is passed in, use that. Even if 'false'. If nothing is passed, find from input value.
+                    // 如果传入了variant，则使用它。即使是“假”。如果没有传递，则从输入值中查找。
                     var variant = e.detail ? e.detail.variant : null;
                     if (!variant && variant !== false) {
                         for (var i = 0; i < productData.variants.length; i++) {
@@ -5951,7 +5990,7 @@
                     }
                     var $container = $(this).closest(_.selectors.container);
 
-                    // string overrides
+                    // string overrides 开始覆盖
                     var $addToCart = $container.find(_.selectors.submitButton).filter('[data-add-to-cart-text]');
                     if ($addToCart.length) {
                         _.strings.buttonDefault = $addToCart.data('add-to-cart-text');
@@ -5960,7 +5999,7 @@
                     // update buttons
                     _.updateButtons(variant, $container);
 
-                    // emit an event to broadcast the variant update
+                    // emit an event to broadcast the variant update 发出一个事件来广播变体更新
                     $(window).trigger('cc-variant-updated', {
                         variant: variant,
                         product: productData
@@ -5971,7 +6010,7 @@
                         // variant passed
                         $container.find(_.selectors.gallery).trigger('variantImageSelected', [variant, e.type === 'firstrun']);
                     } else if (e.detail && e.detail.selectedOptions) {
-                        // if some options selected, find the first matching variant for image
+                        // if some options selected, find the first matching variant for image 选择一些选项，找到第一个匹配变量的图像
                         var matchesRequired = e.detail.selectedOptions.filter((o) => o && o.length > 0).length;
                         if (matchesRequired > 0) {
                             for (var i = 0; i < productData.variants.length; i++) {
@@ -6140,7 +6179,18 @@
                 }
             };
         }
-
+       
+      
+     
+        $(function () {
+            $(".new-learn-more").click(function () {
+                $(this).closest(".new-rich-containers").find('.new-rich-text').toggleClass("expanded");
+              });
+                        theme.initProductGallery($('.product-list .product-block .inners').find('.product-form'));
+            
+                        $('.product-list .product-block .inners').find('.product-form').trigger('load-product-form');
+            
+                    });
         // quick buy - managing slide-down quickbuy in both grids and carousels
         var droppyDownAnimSpeed = 500;
         $(document).on('click', '.product-list .product-block:not(.collection-block):not(.main-search-result) .quickbuy-toggle', function () {
@@ -6229,7 +6279,7 @@
                         $newDetail.find('[data-enable-history-state="true"]').attr('data-enable-history-state', 'false');
                         $newDetail.find('.gallery .thumbnails').removeClass('mobile-only');
                         ['gallery--layout-carousel-beside', 'gallery--layout-columns-1', 'gallery--layout-columns-2', 'gallery--layout-collage-1', 'gallery--layout-collage-2'].forEach((cl) => {
-                            $newDetail.find('.' + cl).removeClass(cl).addClass('gallery--layout-carousel-beside');
+                            $newDetail.find('.' + cl).removeClass(cl).addClass('gallery--layout-carousel-under');
                         });
 
                         $detailCont.html($newDetail);
@@ -6395,7 +6445,7 @@
             }
         });
     });
-    ;
+
     var TermsAgreement = class extends HTMLElement {
         connectedCallback() {
             this.delegatedEvent = theme.addDelegateEventListener(document, 'click', '#cartform [name="checkout"], .additional-checkout-buttons input, a[href*="/checkout"]', this.handleFormSubmittingEvent.bind(this));
@@ -6414,7 +6464,6 @@
     };
 
     window.customElements.define('terms-agreement', TermsAgreement);
-    ;
 
 
     /*================ Sections ================*/
@@ -6641,7 +6690,7 @@
                     var limit = 4;
                     var $btns = $subcollections.find('.btn');
                     if ($btns.length > limit && $subcollections.find('.subcollection-links__expander').length === 0) {
-                        $btns.slice(limit - 1).hide();
+                        $btns.slice(limit - 1).show();
                         $('<a href="#" class="btn btn--tertiary subcollection-links__expander">').text(theme.strings.collections_general_see_all_subcollections).appendTo($subcollections).on('click', function (evt) {
                             evt.preventDefault();
                             $(this).siblings().show();
@@ -7445,7 +7494,7 @@
             setTimeout(function () {
                 $('body').addClass('reveal-mobile-nav');
 
-                // on reveal, set up internal transition values
+                // on reveal, set up internal transition values 在显示时，设置内部转换值
                 $('.mobile-navigation-drawer .disclosure').each(function () {
                     var $list = $('.disclosure-list', this),
                         listHeight = 0;
@@ -7525,6 +7574,7 @@
             if ($iconOptionContainers.length && $('body.swatch-style-icon_circle, body.swatch-style-icon_square').length) {
                 $iconOptionContainers.find('.label').append('<span class="label__value">');
                 $(this).on('variantChanged', function (evt, variant) {
+                    console.log("variant")
                     $iconOptionContainers.each(function () {
                         var optionIndex = $(this).data('option-index');
                         if (variant) {
