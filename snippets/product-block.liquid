@@ -15,7 +15,7 @@
     assign cheapest_variant = product.variants | sort: 'price' | first
 -%}
 
-<div data-product-id="{{ product.id }}" class="product-block" {% if animate %}data-cc-animate{% endif %}>
+<div data-product-id="{{ product.id }}" class="product-block " {% if animate %}data-cc-animate{% endif %}>
     
     {%- liquid
         assign zoom_size = 'master'
@@ -197,6 +197,7 @@
                                  
                                  
                                  
+                                
                                 
                                 
                                 
@@ -507,6 +508,7 @@
                      
                      
                      
+                    
                     
                     
                     
