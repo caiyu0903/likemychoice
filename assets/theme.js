@@ -6265,6 +6265,7 @@
                         } else {
                             // need to use top of block when no quickbuys are visible
                             saveCollectionPageData();
+                            console.log("加载")
                             var offsetTop = typeof $block.data('offsetTop') != 'undefined' ? $block.data('offsetTop') : $block.offset().top;
                             $('html:not(:animated),body:not(:animated)').animate({scrollTop: offsetTop + scrollOffset}, 500);
                         }
