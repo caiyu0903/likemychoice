@@ -520,6 +520,10 @@ input.opt-btn:checked + .opt-label {
         display: none;
     }
 
+    .navigation__item--open.navigation__item--with-children .mobile-nav-back {
+        display: none;
+    }
+
     .navigation__item--open .navigation__children-toggle {
         display: none;
     }
