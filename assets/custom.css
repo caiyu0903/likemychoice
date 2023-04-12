@@ -183,7 +183,11 @@ input.opt-btn:checked + .opt-label {
 .new-gallery {
 }
 
-.new_hover_show:hover
+.new_hover_show:hover .new-product-action.hover_show {
+    opacity: 1;
+    visibility: visible;
+}
+
 .new-inners {
     background-color: #F9F9F9;
     padding: 18px 20px 0;
