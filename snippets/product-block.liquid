@@ -213,6 +213,8 @@
                                 
                                 
                                 
+                                
+                                
                                 </script>
                                 <button
                                         class="view-in-space"
@@ -532,6 +534,8 @@
                     
                     
                     
+                    
+                    
                     </script>
                 </div>
             
@@ -664,7 +668,7 @@
                                                             class="product-block-options__item__text">{{ variant.title | escape }}</span></span>
                                             {%- endfor -%}
                                             {%- if product.variants.size > option_limit and is_swatch -%}
-                                                {%- assign remaining = product.variants.size | minus: option_limit -%}
+                                                {%- assign remaining = product.variants.size | minus: option_limit -%}dsada
                                                 <span class="product-block-options__more-label">{{ 'collections.general.more_swatches' | t: count: remaining }}</span>
                                             {%- endif -%}
                                         {%- else -%}
@@ -714,7 +718,6 @@
                                                 
                                                 {%- if product_option.values.size > option_limit and is_swatch -%}
                                                     {%- assign remaining = product_option.values.size | minus: option_limit -%}
-                                                    {{ remaining }}
                                                     <span class="product-block-options__more-label">{{ 'collections.general.more_swatches' | t: count: remaining }}</span>
                                                 {%- endif -%}
                                             
