@@ -722,12 +722,12 @@
                                     {% comment %}<span class="product-price__item product-price__from">{{ 'products.listing.from' | t }}</span>{% endcomment %}
                                 {% endif %}
                                 <span class="product-price__item product-price__amount {% if cheapest_variant.compare_at_price > cheapest_variant.price %}product-price__amount--on-sale{% endif %} theme-money">
-                  {%- if settings.product_currency_code_enabled -%}
-                      {{ cheapest_variant.price | money_with_currency }}
-                  {%- else -%}
-                      {{ cheapest_variant.price | money }}
-                  {%- endif -%}
-                </span>
+                             {%- if settings.product_currency_code_enabled -%}
+                                 {{ cheapest_variant.price | money_with_currency }}
+                             {%- else -%}
+                                 {{ cheapest_variant.price | money }}
+                             {%- endif -%}
+                              </span>
                                 {% if cheapest_variant.compare_at_price > cheapest_variant.price %}
                                     <span class="product-price__item product-price__compare theme-money">{{ cheapest_variant.compare_at_price | money }}</span>
                                 {% endif %}
