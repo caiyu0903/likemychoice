@@ -6,7 +6,7 @@
             </h3>
         {% endif %}
         <div class="new-image-container">
-            <div class="new-image-item-container swiper-{{ section.id }}">
+            <div class="new-image-item-container {% if section.settings.enable_slider != blank %}swiper-{{ section.id }}{% endif %}">
                 <div class="new-image-item-frame swiper-wrapper scroll-snap-mobile">
                     {% for block in section.blocks %}
                         {% assign item = forloop.length %}
@@ -44,12 +44,14 @@
                 </div>
             
             </div>
-            <div class="swiper-button-next swiper-button-next-{{ section.id }} hide-mobile">
-                {% render 'New-Arrow-Next' %}
-            </div>
-            <div class="swiper-button-prev swiper-button-prev-{{ section.id }} hide-mobile">
-                {% render 'New-Arrow-Prev' %}
-            </div>
+            {% if section.settings.enable_slider != blank %}
+                <div class="swiper-button-next swiper-button-next-{{ section.id }} hide-mobile">
+                    {% render 'New-Arrow-Next' %}
+                </div>
+                <div class="swiper-button-prev swiper-button-prev-{{ section.id }} hide-mobile">
+                    {% render 'New-Arrow-Prev' %}
+                </div>
+            {% endif %}
         </div>
     </div>
 </div>
@@ -141,52 +143,54 @@
 
     }
 </style>
-<script>
-    if (/(iPhone|iPad|iPod|Android|Mobile)/i.test(navigator.userAgent) || window.screen.width < 768) {
-        let new_tab = document.querySelectorAll('.new-image-item-frame')
-        for (let i = 0; i <= new_tab.length; i++) {
-            new_tab[i].classList.remove("swiper-wrapper")
-        }
-    } else {
-        new Swiper(".swiper-{{ section.id }}", {
-            slidesPerView: 4,
-            breakpoints: {
-                320: {  //当屏幕宽度大于等于320
-                    slidesPerView: 2,
-                    spaceBetween: 10,
-                    pagination: {
-                        el: ".swiper-pagination",
-                        clickable: true,
-                    },
-                    navigation: {
-                        nextEl: ".swiper-button-next-{{ section.id }}",
-                        prevEl: ".swiper-button-prev-{{ section.id }}",
-                    },
-                },
-                768: {  //当屏幕宽度大于等于768
-                    slidesPerView: 3,
-                    spaceBetween: 30,
-                    pagination: {
-                        el: ".swiper-pagination",
-                        clickable: true,
-                    },
-                    navigation: {
-                        nextEl: ".swiper-button-next-{{ section.id }}",
-                        prevEl: ".swiper-button-prev-{{ section.id }}",
-                    },
-                },
-                1280: {  //当屏幕宽度大于等于1280
-                    slidesPerView: 4,
-                    spaceBetween: 30,
-                    navigation: {
-                        nextEl: ".swiper-button-next-{{ section.id }}",
-                        prevEl: ".swiper-button-prev-{{ section.id }}",
-                    },
-                }
+{% if section.settings.enable_slider != blank %}
+    <script>
+        if (/(iPhone|iPad|iPod|Android|Mobile)/i.test(navigator.userAgent) || window.screen.width < 768) {
+            let new_tab = document.querySelectorAll('.new-image-item-frame')
+            for (let i = 0; i <= new_tab.length; i++) {
+                new_tab[i].classList.remove("swiper-wrapper")
             }
-        });
-    }
-</script>
+        } else {
+            new Swiper(".swiper-{{ section.id }}", {
+                slidesPerView: 4,
+                breakpoints: {
+                    320: {  //当屏幕宽度大于等于320
+                        slidesPerView: 2,
+                        spaceBetween: 10,
+                        pagination: {
+                            el: ".swiper-pagination",
+                            clickable: true,
+                        },
+                        navigation: {
+                            nextEl: ".swiper-button-next-{{ section.id }}",
+                            prevEl: ".swiper-button-prev-{{ section.id }}",
+                        },
+                    },
+                    768: {  //当屏幕宽度大于等于768
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                        pagination: {
+                            el: ".swiper-pagination",
+                            clickable: true,
+                        },
+                        navigation: {
+                            nextEl: ".swiper-button-next-{{ section.id }}",
+                            prevEl: ".swiper-button-prev-{{ section.id }}",
+                        },
+                    },
+                    1280: {  //当屏幕宽度大于等于1280
+                        slidesPerView: 4,
+                        spaceBetween: 30,
+                        navigation: {
+                            nextEl: ".swiper-button-next-{{ section.id }}",
+                            prevEl: ".swiper-button-prev-{{ section.id }}",
+                        },
+                    }
+                }
+            });
+        }
+    </script>
+{% endif %}
 {% schema %}
 {
   "name": "New-Image-Item",
@@ -293,6 +297,12 @@
       "type": "text",
       "id": "title",
       "label": "Title"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_slider",
+      "label": "Enable Slider",
+      "default": false
     }
   ],
   "blocks": [
