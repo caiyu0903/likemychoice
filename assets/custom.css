@@ -370,6 +370,10 @@ input.opt-btn:checked + .opt-label {
     display: none;
 }
 
+.section-footer__text-block__social .new-mobile {
+    display: none;
+}
+
 @media (max-width: 1024px) {
     .inners .product-form .new-input-row {
         position: absolute;
@@ -382,11 +386,11 @@ input.opt-btn:checked + .opt-label {
     }
 
     .inners .product-form .new-input-row.new-potion-1 {
-        top: -70px;
+        top: -40px;
     }
 
     .inners .product-form .new-input-row.new-potion-3 {
-        top: -70px;
+        top: -100px;
     }
 
     .swatch-style-icon_circle .inners .option-selector--swatch .opt-label, .inners .option-selector__btns .opt-label {
@@ -531,6 +535,10 @@ input.opt-btn:checked + .opt-label {
     }
 
     .navigation__item--open .navigation__children-toggle {
+        display: none;
+    }
+
+    .new-navigation__mobile-social .new-footer {
         display: none;
     }
 }
