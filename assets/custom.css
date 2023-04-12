@@ -522,6 +522,11 @@ input.opt-btn:checked + .opt-label {
 
     .navigation__item--open.navigation__item--with-children .mobile-nav-back {
         display: block;
+        padding: 10px 20px;
+        color: inherit;
+        position: absolute;
+        right: 12px;
+        top: 10px;
     }
 
     .navigation__item--open .navigation__children-toggle {
