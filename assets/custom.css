@@ -511,6 +511,10 @@ input.opt-btn:checked + .opt-label {
         justify-content: center;
         border-radius: 50%;
     }
+
+    .new-navigation__mobile-social .social-links {
+        
+    }
 }
 
 
