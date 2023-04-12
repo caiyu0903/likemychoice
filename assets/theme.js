@@ -6194,7 +6194,6 @@
                     } else {
                         // close expanded siblings
                         var $expandedSiblings = $block.siblings('.expanded');
-                       console.log("expandedSiblings: ",$expandedSiblings)
                         $expandedSiblings.each(function () {
                             contractDetail($(this), 0);
 
