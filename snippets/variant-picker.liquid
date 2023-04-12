@@ -124,7 +124,6 @@
                                 {% unless template.name == 'product' %}
                                     {%- if option.values.size > 4 -%}
                                         {%- assign remaining = option.values.size | minus: option_limit -%}
-                                        {{ remaining }}
                                         <span class="product-block-options__more-label">+ {{ remaining }}</span>
                                     {%- endif -%}
                                 {% endunless %}
