@@ -9422,7 +9422,7 @@ ul.inline li {
 @media (min-width: 1000px) {
     .swatch-method-image .product-block-options--swatch .product-block-options__item:focus, .swatch-method-image .product-block-options--swatch .product-block-options__item:active,
     .swatch-method-image .product-block-options--swatch .product-block-options__item:hover {
-        border-color: {{ font_col_base | color_modify: "alpha", 0.3 }};
+        border-color: rgba(221 140 50 0.3);
     }
 }
 
@@ -10930,7 +10930,8 @@ shopify-payment-terms {
 
 
 
-{{ font_col_base | color_mix: bg_col, 25 | color_to_rgb }}                                                                                                                                                                                                                                             ;*/
+
+{{ font_col_base | color_mix: bg_col, 25 | color_to_rgb }}                                                                                                                                                                                                                                              ;*/
     border-radius: {{ button_border_radius }}px;
     height: 48px;
     width: 48px;
