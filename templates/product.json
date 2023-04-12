@@ -288,7 +288,8 @@
         "mg_top_tablet": 0,
         "mg_top_desktop": 0,
         "text_align": "center",
-        "title": "Collection"
+        "title": "Collection",
+        "enable_slider": true
       }
     }
   },
