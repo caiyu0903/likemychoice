@@ -503,7 +503,7 @@ input.opt-btn:checked + .opt-label {
     }
 
     .new-mobile-container .social-links a {
-        background-color: #eee;
+        background-color: #000;
         width: 30px;
         height: 30px;
         display: flex;
