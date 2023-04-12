@@ -6256,6 +6256,7 @@
                         scrollOffset -= $('.section-header').height();
                     }
                     if (scrollMode == 'qb') {
+                        console.log("$('html:not(:animated),body:not(:animated)'): ",$('html:not(:animated),body:not(:animated)'))
                         $('html:not(:animated),body:not(:animated)').animate({scrollTop: $quickbuyCont.offset().top + scrollOffset}, 500);
                     } else {
                         if ($slider.length > 0) {
