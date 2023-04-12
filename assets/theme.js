@@ -6105,7 +6105,7 @@
                                 return child !== block && child.classList.contains('expanded');
                             }),
                             speed = expandedSiblings.length > 0 ? 0 : droppyDownAnimSpeed; // slide down instantly if a neighbour is expanded
-
+                         console.log("speed: ",speed)
                         $(block).stop().animate({
                             // paddingBottom: targetHeight + 20
                         }, speed); // extra for gap underneath
